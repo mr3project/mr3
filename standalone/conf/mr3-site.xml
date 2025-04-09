@@ -1,0 +1,163 @@
+<configuration>
+
+<property>
+  <name>mr3.lib.uris</name>
+  <value></value>
+</property>
+
+<property>
+  <name>mr3.aux.uris</name>
+  <value></value>
+</property>
+
+<!-- add for LocalProcess with Kerberos
+     -Djava.security.krb5.conf=${base.key.dir}/krb5.conf -->
+<!-- additional options:
+     -Djavax.security.auth.useSubjectCredsOnly=false
+     -Djava.security.auth.login.config=${base.conf.dir}/jgss.conf
+     -Dsun.security.jgss.debug=true -->
+<property>
+  <name>mr3.am.launch.cmd-opts</name>
+  <value>-XX:+AlwaysPreTouch -Xss512k -XX:+UseG1GC -XX:+UseNUMA -XX:InitiatingHeapOccupancyPercent=40 -XX:G1ReservePercent=20 -XX:MaxGCPauseMillis=200 -XX:MetaspaceSize=1024m -Djava.net.preferIPv4Stack=true --add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/java.net=ALL-UNNAMED --add-opens java.base/java.util=ALL-UNNAMED --add-opens java.base/java.time=ALL-UNNAMED --add-opens java.base/java.io=ALL-UNNAMED --add-opens java.base/java.util.concurrent=ALL-UNNAMED --add-opens java.base/java.util.concurrent.atomic=ALL-UNNAMED --add-opens java.base/java.util.regex=ALL-UNNAMED --add-opens java.base/java.util.zip=ALL-UNNAMED --add-opens java.base/java.util.stream=ALL-UNNAMED --add-opens java.base/java.util.jar=ALL-UNNAMED --add-opens java.base/java.util.function=ALL-UNNAMED --add-opens java.logging/java.util.logging=ALL-UNNAMED --add-opens java.base/java.nio=ALL-UNNAMED --add-opens java.base/java.lang.reflect=ALL-UNNAMED --add-opens java.base/java.lang.ref=ALL-UNNAMED --add-opens java.base/java.nio.charset=ALL-UNNAMED --add-opens java.base/java.text=ALL-UNNAMED --add-opens java.base/java.util.concurrent.locks=ALL-UNNAMED --add-opens java.base/sun.util.calendar=ALL-UNNAMED -Dhadoop.metrics.log.level=WARN -Dlog4j.configurationFile=mr3-container-log4j2.properties -Djavax.net.ssl.trustStore=${base.key.dir}/hivemr3-ssl-certificate.jks -Djavax.net.ssl.trustStoreType=jks</value>
+</property>
+
+<property>
+  <name>mr3.am.staging-dir</name>
+  <value></value>
+</property>
+
+<property>
+  <name>mr3.am.max.num.concurrent.dags</name>
+  <value>32</value>
+</property>
+
+<property>
+  <name>mr3.am.task.retry.on.fatal.error</name>
+  <value>true</value>
+</property>
+
+<property>
+  <name>mr3.am.task.no.retry.errors</name>
+  <value>MapJoinMemoryExhaustionError,OutOfMemoryError</value>
+</property>
+
+<property>
+  <name>mr3.am.permit.custom.user.class</name>
+  <value>true</value>
+</property>
+
+<!-- resource scheduler -->
+
+<property>
+  <name>mr3.am.resourcescheduler.max.requests.per.taskscheduler</name>
+  <value>1000</value>
+</property>
+
+<!-- container -->
+
+<property>
+  <name>mr3.container.launch.cmd-opts</name>
+  <value></value>
+</property>
+
+<property>
+  <name>mr3.container.stop.cross.dag.reuse</name>
+  <value>false</value>
+</property>
+
+<property>
+  <name>mr3.container.idle.timeout.ms</name>
+  <value>86400000</value>
+</property>
+
+<property>
+  <name>mr3.heartbeat.container.timeout.ms</name>
+  <value>300000</value>
+</property>
+
+<!-- mr3.master.mode is set in mr3-setup.sh --> 
+
+<property>
+  <name>mr3.am.acls.enabled</name>
+  <value>false</value>
+</property>
+
+<property>
+  <name>mr3.am.resource.memory.mb</name>
+  <value>${mr3.am.heapsize}</value>
+</property>
+
+<property>
+  <name>mr3.am.worker.mode</name>
+  <value>process</value>
+</property>
+
+<property>
+  <name>mr3.container.resourcescheduler.type</name>
+  <value>process</value>
+</property>
+
+<property>
+  <name>mr3.am.launch.env</name>
+  <value>LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HADOOP_HOME/lib/native/,HADOOP_CREDSTORE_PASSWORD,AWS_ACCESS_KEY_ID,AWS_SECRET_ACCESS_KEY,AWS_REGION</value>
+</property>
+
+<property>
+  <name>mr3.container.launch.env</name>
+  <value></value>
+</property>
+
+<property>
+  <name>mr3.am.delete.local.working-dir</name>
+  <value>false</value>
+</property>
+
+<property>
+  <name>mr3.am.local.working-dir</name>
+  <value>${base.out.dir}/am-local-working-dir</value>
+</property>
+
+<property>
+  <name>mr3.am.local.log-dir</name>
+  <value>${base.out.dir}/am-local-log-dir</value>
+</property>
+
+<!-- These variables are all set in mr3/mr3-setup.sh:
+  mr3.cluster.additional.classpath 
+  mr3.principal
+  mr3.keytab
+  mr3.token.renewal.hdfs.enabled
+  mr3.token.renewal.hive.enabled
+ -->
+
+<property>
+  <name>mr3.am.token.renewal.paths</name>
+  <value></value>
+</property>
+
+<!-- set to false when using S3 instead of PersistentVolume on AWS EKS -->
+<property>
+  <name>mr3.am.staging.dir.check.ownership.permission</name>
+  <value>false</value>
+</property>
+
+<property>
+  <name>mr3.am.task.concurrent.run.threshold.percent</name>
+  <value>99</value>
+</property>
+
+<property>
+  <name>mr3.am.task.concurrent.run.enable.root.vertex</name>
+  <value>true</value>
+</property>
+
+<property>
+  <name>dfs.namenode.delegation.token.renew-interval</name>
+  <value>86400000</value>
+  <description>
+    Internally used by mr3.common.security.TokenRenewer when Kerberos token renewal is enabled inside DAGAppMaster and ContainerWorkers.
+    Replaces org.apache.hadoop.hdfs.DFSConfigKeys.DFS_NAMENODE_DELEGATION_TOKEN_RENEW_INTERVAL_KEY.
+  </description>
+</property>
+
+</configuration>

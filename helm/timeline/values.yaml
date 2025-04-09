@@ -1,0 +1,85 @@
+name:
+  timeline:
+    configMap: hivemr3-timeline-configmap
+    secret: hivemr3-timeline-secret
+  envSecret: timeline-env-secret
+  persistentVolume: workdir-timeline-pv
+  persistentVolumeClaim: workdir-timeline-pvc
+
+docker:
+  image: mr3project/mr3ui:1.5
+  imagePullPolicy: Always
+  imagePullSecrets: 
+
+timeline:
+  # if not set, a random value will be generated
+  # should match amConf.atsSecretKey in hive/values.yaml
+  secretKey: 
+    
+  httpPort: 9188
+  httpsPort: 9190
+  externalIp: 1.1.1.1
+
+  createSecret: true
+
+  resources:
+    requests:
+      cpu: 1
+      memory: 4Gi
+    limits:
+      cpu: 1
+      memory: 4Gi
+
+ui:
+  httpPort: 8080
+  resources:
+    requests:
+      cpu: 0.25
+      memory: 512Mi
+    limits:
+      cpu: 0.25
+      memory: 512Mi
+
+prometheus:
+  httpPort: 9090
+  resources:
+    requests:
+      cpu: 1.25
+      memory: 4096Mi
+    limits:
+      cpu: 1.25
+      memory: 4096Mi
+
+grafana:
+  httpPort: 3000
+  resources:
+    requests:
+      cpu: 0.25
+      memory: 512Mi
+    limits:
+      cpu: 0.25
+      memory: 512Mi
+
+workDir:
+  # if false, the user should manually create PersistentVolumeClaim of the same name specified by the 
+  # field name.persistentVolume, and PersistentVolume if necessary
+  create: true
+  
+  isNfs: true
+  nfs:
+    server: "1.1.1.1"
+    path: "/work/nfs/timeline"
+  volumeSize: 10Gi
+  volumeClaimSize: 10Gi
+  storageClassName: ""
+  # if isNfs == false, configure a volume like below.
+  # volumeStr should be indented properly with a double space (or multiple double spaces) after '\n'.
+  #   ex. okay  -> volumeStr: "hostPath:\n  path: /work/nfs/mr3-run-work-dir"
+  #   ex. wrong -> volumeStr: "hostPath:\n path: /work/nfs/mr3-run-work-dir"
+  volumeStr: 
+
+hostAliases:
+- ip: "1.1.1.1"
+  hostnames:
+  - "red0"
+

@@ -1,0 +1,5 @@
+<configuration>
+
+<!-- fs.defaultFS is set by HADOOP_HOME_LOCAL in env.sh -->
+
+</configuration>

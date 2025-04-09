@@ -1,0 +1,319 @@
+<configuration>
+
+<property>
+  <name>tez.counters.max</name>
+  <value>10000</value>
+</property>
+
+<property>
+  <name>tez.counters.max.groups</name>
+  <value>3000</value>
+</property>
+
+<!-- TezSplitGrouper -->
+
+<property>
+  <name>tez.grouping.max-size</name>
+  <value>1073741824</value>
+</property>
+
+<property>
+  <name>tez.grouping.min-size</name>
+  <value>16777216</value>
+</property>
+
+<property>
+  <name>tez.grouping.node.local.only</name>
+  <value>true</value>
+</property>
+
+<!-- ShuffleVertexManager -->
+
+<property>
+  <name>tez.shuffle-vertex-manager.max-src-fraction</name>
+  <value>0.4</value>
+</property>
+
+<property>
+  <name>tez.shuffle-vertex-manager.min-src-fraction</name>
+  <value>0.2</value>
+</property>
+
+<property>
+  <name>tez.shuffle-vertex-manager.enable.auto-parallel</name>
+  <value>true</value>
+</property>
+
+<!-- to disable auto parallelism, set tez.shuffle-vertex-manager.auto-parallel.min.num.tasks to a value larger than hive.exec.reducers.max in hive-site.xml -->
+<property>
+  <name>tez.shuffle-vertex-manager.auto-parallel.min.num.tasks</name>
+  <value>251</value>
+</property>
+
+<property>
+  <name>tez.shuffle.vertex.manager.auto.parallelism.min.percent</name>
+  <value>10</value>
+</property>
+
+<property>
+  <name>tez.shuffle-vertex-manager.auto-parallel.max.reduction.percentage</name>
+  <value>50</value>
+</property>
+
+<property>
+  <name>tez.shuffle-vertex-manager.use-stats-auto-parallelism</name>
+  <value>true</value>
+</property>
+
+<!-- CartesianProductVertexManager -->
+
+<property>
+  <name>tez.cartesian-product.grouping-fraction</name>
+  <value>0.75</value>
+</property>
+
+<property>
+  <name>tez.cartesian-product.min-ops-per-worker</name>
+  <value>1000000</value>
+</property>
+
+<!-- Shuffle Handler in MR3 -->
+
+<property>
+  <name>tez.am.shuffle.auxiliary-service.id</name>
+  <value>tez_shuffle</value>
+</property>
+
+<property>
+  <name>tez.shuffle.port</name>
+  <value>15551</value>
+</property>
+
+<property>
+  <name>tez.shuffle.connection-keep-alive.enable</name>
+  <value>true</value>
+</property>
+
+<property>
+  <name>tez.shuffle.max.threads</name>
+  <value>20</value>
+  <description>
+    Set to 'total number of threads for shuffle handlers / mr3.use.daemon.shufflehandler'
+  </description>
+</property>
+
+<property>
+  <name>tez.shuffle.listen.queue.size</name>
+  <value>16384</value>
+</property>
+
+<property>
+  <name>tez.shuffle.mapoutput-info.meta.cache.size</name>
+  <value>10000</value>
+</property>
+
+<property>
+  <name>tez.shuffle.indexcache.mb</name>
+  <value>20</value>
+</property>
+
+<property>
+  <name>tez.shuffle.indexcache.share</name>
+  <value>true</value>
+</property>
+
+<property>
+  <name>tez.shuffle.skip.verify.request</name>
+  <value>true</value>
+</property>
+
+<!-- Runtime -->
+
+<property>
+  <name>tez.runtime.compress</name>
+  <value>true</value>
+</property>
+
+<property>
+  <name>tez.runtime.compress.codec</name>
+  <value>org.apache.hadoop.io.compress.SnappyCodec</value>
+</property>
+
+<property>
+  <name>tez.runtime.io.sort.mb</name>
+  <value>1040</value>
+</property>
+
+<property>
+  <name>tez.runtime.unordered.output.buffer.size-mb</name>
+  <value>307</value>
+</property>
+
+<property>
+  <name>tez.runtime.pipelined.sorter.lazy-allocate.memory</name>
+  <value>true</value>
+</property>
+
+<property>
+  <name>tez.runtime.report.partition.stats</name>
+  <value>precise</value>
+</property>
+
+<!-- Shuffle -->
+
+<property>
+  <name>tez.runtime.shuffle.connect.timeout</name>
+  <value>7500</value>
+  <description>
+    Set to 2500 in order not to retry when a connection failure occurs.
+  </description>
+</property>
+
+<property>
+  <name>tez.runtime.shuffle.read.timeout</name>
+  <value>60000</value>
+</property>
+
+<property>
+  <name>tez.runtime.shuffle.keep-alive.enabled</name>
+  <value>true</value>
+</property>
+
+<property>
+  <name>tez.runtime.pipelined-shuffle.enabled</name>
+  <value>false</value>
+</property>
+
+<property>
+  <name>tez.runtime.enable.final-merge.in.output</name>
+  <value>true</value>
+</property>
+
+<property>
+  <name>tez.runtime.shuffle.memory.limit.percent</name>
+  <value>0.5</value>
+</property>
+
+<property>
+  <name>tez.runtime.task.input.post-merge.buffer.percent</name>
+  <value>0.9</value>
+</property>
+
+<property>
+  <name>tez.runtime.optimize.local.fetch</name>
+  <value>true</value>
+</property>
+
+<!-- set to false if tez.runtime.shuffle.memory-to-memory.enable is set to true -->
+<property>
+  <name>tez.runtime.optimize.local.fetch.ordered</name>
+  <value>false</value>
+</property>
+
+<property>
+  <name>tez.runtime.shuffle.memory-to-memory.enable</name>
+  <value>true</value>
+</property>
+
+<property>
+  <name>tez.runtime.use.free.memory.fetched.input</name>
+  <value>true</value>
+</property>
+
+<!-- Shuffle Server -->
+
+<property>
+  <name>tez.runtime.shuffle.parallel.copies</name>
+  <value>10</value>
+</property>
+
+<property>
+  <name>tez.runtime.shuffle.total.parallel.copies</name>
+  <value>180</value>
+</property>
+
+<property>
+  <name>tez.runtime.shuffle.fetch.max.task.output.at.once</name>
+  <value>20</value>
+</property>
+
+<!-- max # of host + port combinations to cache
+     set to 'desired # of hosts' * hive.mr3.use.daemon.shufflehandler
+     should be set to prevent memory-leak in public clouds with autoscaling
+  -->
+<property>
+  <name>tez.runtime.shuffle.max.input.hostports</name>
+  <value>10000</value>
+</property>
+
+<property>
+  <name>tez.runtime.shuffle.speculative.fetch.wait.millis</name>
+  <value>30000</value>
+</property>
+
+<property>
+  <name>tez.runtime.shuffle.stuck.fetcher.threshold.millis</name>
+  <value>3000</value>
+</property>
+
+<property>
+  <name>tez.runtime.shuffle.stuck.fetcher.release.millis</name>
+  <value>15000</value>
+</property>
+
+<!-- Secure Shuffle -->
+<!-- 
+  if hadoop.security.credential.provider.path is not set in core-site.xml,
+    passwords are read dirctly from tez-site.xml in text.
+  if hadoop.security.credential.provider.path is set in core-site.xml,
+    passwords are read from the credential file.
+ -->
+
+<property>
+  <name>tez.runtime.shuffle.ssl.enable</name>
+  <value>false</value>
+</property>
+
+<property>
+  <name>ssl.server.truststore.location</name>
+  <value>${base.key.dir}/mr3-truststore.jks</value>
+</property>
+
+<property>
+  <name>ssl.server.truststore.password</name>
+  <value>truststore_password</value>
+</property>
+
+<property>
+  <name>ssl.server.keystore.location</name>
+  <value>${base.key.dir}/mr3-keystore.jks</value>
+</property>
+
+<property>
+  <name>ssl.server.keystore.password</name>
+  <value>keystore_password</value>
+</property>
+
+<property>
+  <name>ssl.server.keystore.keypassword</name>
+  <value>key_password</value>
+</property>
+
+<property>
+  <name>ssl.client.truststore.location</name>
+  <value>${base.key.dir}/mr3-truststore.jks</value>
+</property>
+
+<property>
+  <name>ssl.client.truststore.password</name>
+  <value>truststore_password</value>
+</property>
+
+<!-- Iceberg -->
+
+<property>
+  <name>tez.mrreader.config.update.properties</name>
+  <value>hive.io.file.readcolumn.names,hive.io.file.readcolumn.ids</value>
+</property>
+
+</configuration>

@@ -1,0 +1,24 @@
+<configuration>
+
+  <property>
+    <name>xasecure.audit.is.enabled</name>
+    <value>true</value>
+  </property>	
+
+  <!-- Ranger audit provider configuration -->
+  <property>
+    <name>xasecure.audit.destination.solr</name>
+    <value>true</value>
+  </property>
+
+  <property>
+    <name>xasecure.audit.destination.solr.urls</name>
+    <value>http://red0:6083/solr/ranger_audits</value>
+  </property>
+
+  <property>
+    <name>xasecure.audit.destination.solr.batch.filespool.dir</name>
+    <value>/opt/mr3-run/work-dir/hive/hive_audit_solr_spool</value>
+  </property>
+
+</configuration>

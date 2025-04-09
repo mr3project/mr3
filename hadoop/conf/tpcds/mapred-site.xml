@@ -1,0 +1,9 @@
+<!-- MR3 does not use MapReduce configuration -->
+<configuration>
+
+<property>
+  <name>mapreduce.framework.name</name>
+  <value>yarn</value>
+</property>
+
+</configuration>

@@ -1,0 +1,124 @@
+<configuration>
+
+<property>
+  <name>mr3.master.mode</name>
+  <value>yarn</value>
+</property>
+
+<property>
+  <name>mr3.am.worker.mode</name>
+  <value>yarn</value>
+</property>
+
+<property>
+  <name>mr3.am.resource.memory.mb</name>
+  <value>${mr3.am.heapsize}</value>
+</property>
+
+<property>
+  <name>mr3.am.resource.cpu.cores</name>
+  <value>1</value>
+</property>
+
+<property>
+  <name>mr3.cluster.use.hadoop-libs</name>
+  <value>${tez.use.minimal}</value>
+</property>
+
+<property>
+  <name>mr3.lib.uris</name>
+  <value>${liburis}</value>
+</property>
+
+<property>
+  <name>mr3.aux.uris</name>
+  <value>${auxuris}</value>
+</property>
+
+<property>
+  <name>mr3.cluster.additional.classpath</name>
+  <value>${amprocess.classpath}</value>
+</property>
+
+<property>
+  <name>mr3.am.launch.cmd-opts</name>
+  <value>-XX:+AlwaysPreTouch -Xss512k -XX:+UseG1GC -XX:+UseNUMA -XX:InitiatingHeapOccupancyPercent=40 -XX:G1ReservePercent=20 -XX:MaxGCPauseMillis=200 -XX:MetaspaceSize=1024m -Djava.net.preferIPv4Stack=true --add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/java.net=ALL-UNNAMED --add-opens java.base/java.util=ALL-UNNAMED --add-opens java.base/java.time=ALL-UNNAMED --add-opens java.base/java.io=ALL-UNNAMED --add-opens java.base/java.util.concurrent=ALL-UNNAMED --add-opens java.base/java.util.concurrent.atomic=ALL-UNNAMED --add-opens java.base/java.util.regex=ALL-UNNAMED --add-opens java.base/java.util.zip=ALL-UNNAMED --add-opens java.base/java.util.stream=ALL-UNNAMED --add-opens java.base/java.util.jar=ALL-UNNAMED --add-opens java.base/java.util.function=ALL-UNNAMED --add-opens java.logging/java.util.logging=ALL-UNNAMED --add-opens java.base/java.nio=ALL-UNNAMED --add-opens java.base/java.lang.reflect=ALL-UNNAMED --add-opens java.base/java.lang.ref=ALL-UNNAMED --add-opens java.base/java.nio.charset=ALL-UNNAMED --add-opens java.base/java.text=ALL-UNNAMED --add-opens java.base/java.util.concurrent.locks=ALL-UNNAMED --add-opens java.base/sun.util.calendar=ALL-UNNAMED</value>
+</property>
+
+<property>
+  <name>mr3.am.launch.env</name>
+  <value>LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HADOOP_HOME/lib/native/,JAVA_HOME=${javahome}</value>
+</property>
+
+<!--
+  Set automatically by Hive or mr3-setup.sh:
+    mr3.am.staging-dir
+    mr3.am.local.log-dir
+  -->
+
+<property>
+  <name>mr3.am.local.working-dir</name>
+  <value>/tmp/${user.name}/working-dir</value>
+</property>
+
+<property>
+  <name>mr3.am.log.level</name>
+  <value>INFO</value>
+</property>
+
+<property>
+  <name>mr3.am.task.retry.on.fatal.error</name>
+  <value>true</value>
+</property>
+
+<property>
+  <name>mr3.am.task.no.retry.errors</name>
+  <value>MapJoinMemoryExhaustionError,OutOfMemoryError</value>
+</property>
+
+<property>
+  <name>mr3.am.permit.custom.user.class</name>
+  <value>true</value>
+</property>
+
+<property>
+  <name>mr3.am.resourcescheduler.max.requests.per.taskscheduler</name>
+  <value>20</value>
+</property>
+
+<property>
+  <name>mr3.container.resourcescheduler.type</name>
+  <value>yarn</value>
+</property>
+
+<property>
+  <name>mr3.container.launch.cmd-opts</name>
+  <value>-XX:+AlwaysPreTouch -Xss512k -XX:+UseG1GC -XX:+UseNUMA -XX:InitiatingHeapOccupancyPercent=40 -XX:G1ReservePercent=20 -XX:MaxGCPauseMillis=200 -XX:MetaspaceSize=1024m -Djava.net.preferIPv4Stack=true --add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/java.net=ALL-UNNAMED --add-opens java.base/java.util=ALL-UNNAMED --add-opens java.base/java.time=ALL-UNNAMED --add-opens java.base/java.io=ALL-UNNAMED --add-opens java.base/java.util.concurrent=ALL-UNNAMED --add-opens java.base/java.util.concurrent.atomic=ALL-UNNAMED --add-opens java.base/java.util.regex=ALL-UNNAMED --add-opens java.base/java.util.zip=ALL-UNNAMED --add-opens java.base/java.util.stream=ALL-UNNAMED --add-opens java.base/java.util.jar=ALL-UNNAMED --add-opens java.base/java.util.function=ALL-UNNAMED --add-opens java.logging/java.util.logging=ALL-UNNAMED --add-opens java.base/java.nio=ALL-UNNAMED --add-opens java.base/java.lang.reflect=ALL-UNNAMED --add-opens java.base/java.lang.ref=ALL-UNNAMED --add-opens java.base/java.nio.charset=ALL-UNNAMED --add-opens java.base/java.text=ALL-UNNAMED --add-opens java.base/java.util.concurrent.locks=ALL-UNNAMED --add-opens java.base/sun.util.calendar=ALL-UNNAMED</value>
+</property>
+
+<property>
+  <name>mr3.container.launch.env</name>
+  <value>LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HADOOP_HOME/lib/native/,JAVA_HOME=${javahome}</value>
+</property>
+
+<property>
+  <name>mr3.container.stop.cross.dag.reuse</name>
+  <value>false</value>
+</property>
+
+<property>
+  <name>mr3.container.idle.timeout.ms</name>
+  <value>3600000</value>
+</property>
+
+<property>
+  <name>mr3.am.task.concurrent.run.threshold.percent</name>
+  <value>99</value>
+</property>
+
+<property>
+  <name>mr3.am.task.concurrent.run.enable.root.vertex</name>
+  <value>true</value>
+</property>
+
+</configuration>
