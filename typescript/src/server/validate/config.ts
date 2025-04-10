@@ -66,7 +66,7 @@ export function initial(): T {
       'tez.shuffle-vertex-manager.auto-parallel.min.num.tasks': 251,
       'tez.shuffle-vertex-manager.auto-parallel.max.reduction.percentage': 50,
       'tez.shuffle-vertex-manager.use-stats-auto-parallelism': true,
-      'tez.shuffle.vertex.manager.auto.parallelism.min.percent': 0,
+      'tez.shuffle.vertex.manager.auto.parallelism.min.percent': 10,
       'tez.shuffle.connection-keep-alive.enable': true,
       'tez.shuffle.listen.queue.size': 16384,
       'tez.shuffle.mapoutput-info.meta.cache.size': 10000,

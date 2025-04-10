@@ -51,11 +51,6 @@
 </property>
 
 <property>
-  <name>tez.shuffle.vertex.manager.auto.parallelism.min.percent</name>
-  <value>${env.config.tez['tez.shuffle.vertex.manager.auto.parallelism.min.percent']}</value>
-</property>
-
-<property>
   <name>tez.shuffle-vertex-manager.auto-parallel.max.reduction.percentage</name>
   <value>${env.config.tez['tez.shuffle-vertex-manager.auto-parallel.max.reduction.percentage']}</value>
 </property>
@@ -63,6 +58,11 @@
 <property>
   <name>tez.shuffle-vertex-manager.use-stats-auto-parallelism</name>
   <value>${env.config.tez['tez.shuffle-vertex-manager.use-stats-auto-parallelism']}</value>
+</property>
+
+<property>
+  <name>tez.shuffle.vertex.manager.auto.parallelism.min.percent</name>
+  <value>${env.config.tez['tez.shuffle.vertex.manager.auto.parallelism.min.percent']}</value>
 </property>
 
 <property>
