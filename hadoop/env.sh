@@ -165,7 +165,7 @@ HIVE_METASTORE_KERBEROS_KEYTAB=/etc/security/keytabs/hive.service.keytab
 HIVE_SERVER2_AUTHENTICATION=NONE
 # Kerberos principal for HiveServer2; cf. 'hive.server2.authentication.kerberos.principal' in hive-site.xml 
 HIVE_SERVER2_KERBEROS_PRINCIPAL=hive/_HOST@HADOOP
-# Kerberos keytab for HiveServer2; cf. 'hive.server2.authentication.kerberos.keytab' in hive-site.xml 
+# Kerberos keytab for HiveServer2; cf. 'hive.server2.authentication.kerberos.keytab' in hive-site.xml
 HIVE_SERVER2_KERBEROS_KEYTAB=/home/hive/hive.keytab
 
 # Specifies whether Hive token renewal is enabled inside DAGAppMaster and ContainerWorkers

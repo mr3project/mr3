@@ -1,5 +1,6 @@
 MR3
 ===
+
 MR3 is a new execution engine for Hadoop and Kubernetes. Similar in spirit to
 MapReduce and Tez, it is a new execution engine with simpler design, better
 performance, and more features. MR3 serves as a framework for running jobs on
@@ -17,6 +18,14 @@ MR3 is implemented in Scala.
 For the full documentation on MR3, please visit:
 
   https://mr3docs.datamonad.com/
+
+* [MR3 Slack](https://join.slack.com/t/mr3-help/shared_invite/zt-1wpqztk35-AN8JRDznTkvxFIjtvhmiNg)
+* [MR3 Google Group](https://groups.google.com/g/hive-mr3)
+
+MR3 release
+===========
+
+This is the git repository for the MR3 release.
 
 Installing binary files
 =======================
