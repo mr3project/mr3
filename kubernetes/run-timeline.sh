@@ -35,8 +35,8 @@ fi
 kubectl create namespace $MR3_NAMESPACE
 
 # Volumes
-if [ $RUN_AWS_EKS = true ]; then
-  echo "assume that PersistentVolumeClaim workdir-pvc has been created"
+if [ $CREATE_PERSISTENT_VOLUME = false ]; then
+  echo "do not create PersistentVolume workdir-pv"
 else
   kubectl create -f $YAML_DIR/workdir-pv-timeline.yaml
   kubectl create -n $MR3_NAMESPACE -f $YAML_DIR/workdir-pvc-timeline.yaml

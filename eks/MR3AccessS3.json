@@ -1,0 +1,21 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:*"
+            ],
+            "Resource": [
+                "arn:aws:s3:::hivemr3-warehouse-dir",
+                "arn:aws:s3:::hivemr3-warehouse-dir/*",
+                "arn:aws:s3:::hivemr3-scratch-dir",
+                "arn:aws:s3:::hivemr3-scratch-dir/*",
+                "arn:aws:s3:::hivemr3-partitioned-2-orc",
+                "arn:aws:s3:::hivemr3-partitioned-2-orc/*",
+                "arn:aws:s3:::hivemr3-partitioned-1000-orc",
+                "arn:aws:s3:::hivemr3-partitioned-1000-orc/*"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,59 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: hive-mr3
+  region: ap-northeast-2
+
+vpc:
+  nat:
+    gateway: Single
+
+availabilityZones: ["ap-northeast-2a", "ap-northeast-2b", "ap-northeast-2c"]
+
+nodeGroups:
+  - name: mr3-master
+    availabilityZones: ["ap-northeast-2a"]
+    instanceType: m5.xlarge
+    labels: { roles: masters }
+    ssh:
+      allow: true
+    desiredCapacity: 1
+    iam:
+      attachPolicyARNs:
+        - arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy
+        - arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy
+        - arn:aws:iam::123456789012:policy/EKSAutoScalingWorkerPolicy
+        - arn:aws:iam::123456789012:policy/MR3AccessS3
+      withAddonPolicies:
+        efs: true
+  - name: mr3-worker
+    availabilityZones: ["ap-northeast-2a"]
+    instanceType: mixed
+    labels: { roles: workers }
+    ssh:
+      allow: true
+    desiredCapacity: 0
+    minSize: 0
+    maxSize: 3
+    instancesDistribution:
+      instanceTypes: ["m5d.xlarge"]
+      onDemandBaseCapacity: 0
+      onDemandPercentageAboveBaseCapacity: 0
+    iam:
+      attachPolicyARNs:
+        - arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy
+        - arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy
+        - arn:aws:iam::123456789012:policy/EKSAutoScalingWorkerPolicy
+        - arn:aws:iam::123456789012:policy/MR3AccessS3
+      withAddonPolicies:
+        efs: true
+    tags:
+      k8s.io/cluster-autoscaler/enabled: "true"
+      k8s.io/cluster-autoscaler/hive-mr3: "owned"
+      k8s.io/cluster-autoscaler/node-template/label/roles: "workers"
+    preBootstrapCommands:
+      - "IDX=1; for DEV in /dev/disk/by-id/nvme-Amazon_EC2_NVMe_Instance_Storage_*-ns-1; do mkfs.xfs ${DEV}; mkdir -p /ephemeral${IDX}; echo ${DEV} /ephemeral${IDX} xfs defaults,noatime 1 2 >> /etc/fstab; IDX=$((${IDX} + 1)); done"
+      - "mount -a"
+      - "IDX=1; for DEV in /dev/disk/by-id/nvme-Amazon_EC2_NVMe_Instance_Storage_*-ns-1; do chown ec2-user:ec2-user /ephemeral${IDX}; IDX=$((${IDX} + 1)); done"
+

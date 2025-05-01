@@ -41,8 +41,10 @@ HIVE_MR3_JVM_OPTION="$HIVE_MR3_JVM_OPTION --add-opens java.base/java.lang=ALL-UN
 # metastore.mountLib in helm/hive/values.yaml should be set to true to mount the MySQL connector provided by the user.
 METASTORE_USE_PERSISTENT_VOLUME=true
 
-# set to true if PersistentVolumeClaim workdir-pvc has been created manually, e.g., on AWS EKS
-RUN_AWS_EKS=false
+# set to false if:
+#   1) PersistentVolume is not used, or
+#   2) PersistentVolume workdir-pv has been created manually, e.g., on AWS EKS
+CREATE_PERSISTENT_VOLUME=true
 
 CREATE_SERVICE_ACCOUNTS=true
 
