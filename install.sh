@@ -39,8 +39,6 @@ mkdir -p kubernetes/timeline-key
 
 rm -f helm/hive/conf
 rm -f helm/hive/key
-rm -f helm/ats/conf
-rm -f helm/ats/key
 rm -f helm/timeline/conf
 rm -f helm/timeline/key
 rm -f helm/ranger/conf
@@ -48,8 +46,6 @@ rm -f helm/ranger/key
 
 ln -s ../../kubernetes/conf helm/hive/conf
 ln -s ../../kubernetes/key helm/hive/key
-ln -s ../../kubernetes/ats-conf helm/ats/conf
-ln -s ../../kubernetes/ats-key helm/ats/key
 ln -s ../../kubernetes/timeline-conf helm/timeline/conf
 ln -s ../../kubernetes/timeline-key helm/timeline/key
 ln -s ../../kubernetes/ranger-conf helm/ranger/conf
