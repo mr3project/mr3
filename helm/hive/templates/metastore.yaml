@@ -113,7 +113,7 @@ spec:
         - name: key-k8s-volume
           mountPath: {{ .Values.dir.keytab }}
           readOnly: true
-        {{- if .Values.workDir.create }}
+        {{- if .Values.workDir.use }}
         - name: work-dir-volume
           mountPath: {{ .Values.dir.persistentVolumeClaim }}
         {{- end }}
@@ -139,7 +139,7 @@ spec:
       - name: key-k8s-volume
         secret:
           secretName: {{ .Values.name.hive.secret }}
-      {{- if .Values.workDir.create }}
+      {{- if .Values.workDir.use }}
       - name: work-dir-volume
         persistentVolumeClaim:
           claimName: {{ .Values.name.persistentVolumeClaim }}

@@ -84,4 +84,4 @@ spec:
         emptyDir: {}
       - name: work-dir-volume
         persistentVolumeClaim:
-          claimName: workdir-pvc-ranger
+          claimName: workdir-pvc

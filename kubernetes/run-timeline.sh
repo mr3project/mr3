@@ -34,14 +34,6 @@ fi
 # Namespace
 kubectl create namespace $MR3_NAMESPACE
 
-# Volumes
-if [ $CREATE_PERSISTENT_VOLUME = false ]; then
-  echo "do not create PersistentVolume workdir-pv"
-else
-  kubectl create -f $YAML_DIR/workdir-pv-timeline.yaml
-  kubectl create -n $MR3_NAMESPACE -f $YAML_DIR/workdir-pvc-timeline.yaml
-fi
-
 # env-secret and ConfigMaps
 kubectl create -n $MR3_NAMESPACE secret generic env-secret --from-file=$BASE_DIR/env.sh
 kubectl create -n $MR3_NAMESPACE configmap hivemr3-timeline-conf-configmap --from-file=$BASE_DIR/timeline-conf/

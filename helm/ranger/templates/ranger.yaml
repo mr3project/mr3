@@ -52,8 +52,10 @@ spec:
         - name: key-k8s-volume
           mountPath: /opt/mr3-run/ranger/key/
           readOnly: true
+        {{- if .Values.workDir.use }}
         - name: work-dir-volume
           mountPath: /opt/mr3-run/ranger/work-dir/
+        {{- end }}
       - image: {{ .Values.docker.image }}
         command: ["/opt/mr3-run/ranger/start-ranger.sh"]
         imagePullPolicy: {{ .Values.docker.imagePullPolicy }}
@@ -79,8 +81,10 @@ spec:
           readOnly: true
         - name: work-local-dir-volume
           mountPath: /opt/mr3-run/ranger/work-local-dir/
+        {{- if .Values.workDir.use }}
         - name: work-dir-volume
           mountPath: /opt/mr3-run/ranger/work-dir/
+        {{- end }}
       volumes:
       - name: conf-k8s-volume
         configMap:
@@ -90,6 +94,8 @@ spec:
           secretName: {{ .Values.name.ranger.secret }}
       - name: work-local-dir-volume
         emptyDir: {}
+      {{- if .Values.workDir.use }}
       - name: work-dir-volume
         persistentVolumeClaim:
           claimName: {{ .Values.name.persistentVolumeClaim }}
+      {{- end }}

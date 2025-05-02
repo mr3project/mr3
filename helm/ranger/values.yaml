@@ -2,8 +2,8 @@ name:
   ranger:
     configMap: hivemr3-ranger-configmap
     secret: hivemr3-ranger-secret
-  persistentVolume: workdir-ranger-pv
-  persistentVolumeClaim: workdir-ranger-pvc
+  persistentVolume: workdir-pv        # must match name.persistentVolume in hive/values.yaml
+  persistentVolumeClaim: workdir-pvc  # must match name.persistentVolumeClaim in hive/values.yaml
 
 docker:
   image: mr3project/ranger:2.6.0
@@ -35,22 +35,9 @@ ranger:
       memory: 4Gi
 
 workDir:
-  # if false, the user should manually create PersistentVolumeClaim of the same name specified by the 
-  # field name.persistentVolume, and PersistentVolume if necessary
-  create: true
-
-  isNfs: true
-  nfs:
-    server: "1.1.1.1"
-    path: "/work/nfs/ranger"
-  volumeSize: 10Gi
-  volumeClaimSize: 10Gi
-  storageClassName: ""
-  # if isNfs == false, configure a volume like below.
-  # volumeStr should be indented properly with a double space (or multiple double spaces) after '\n'.
-  #   ex. okay  -> volumeStr: "hostPath:\n  path: /work/nfs/mr3-run-work-dir"
-  #   ex. wrong -> volumeStr: "hostPath:\n path: /work/nfs/mr3-run-work-dir"
-  volumeStr: 
+  # true: use PersistentVolumeClaim created for Hive on MR3
+  # false: do not use PersistentVolumeClaim
+  use: true
     
 logLevel: INFO
 

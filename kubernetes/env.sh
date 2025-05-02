@@ -37,8 +37,7 @@ HIVE_MR3_JVM_OPTION="-XX:+UseG1GC -XX:+UseNUMA -Djava.net.preferIPv4Stack=true"
 HIVE_MR3_JVM_OPTION="$HIVE_MR3_JVM_OPTION --add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/java.net=ALL-UNNAMED --add-opens java.base/java.util=ALL-UNNAMED --add-opens java.base/java.time=ALL-UNNAMED --add-opens java.base/java.io=ALL-UNNAMED --add-opens java.base/java.util.concurrent=ALL-UNNAMED --add-opens java.base/java.util.concurrent.atomic=ALL-UNNAMED --add-opens java.base/java.util.regex=ALL-UNNAMED --add-opens java.base/java.util.zip=ALL-UNNAMED --add-opens java.base/java.util.stream=ALL-UNNAMED --add-opens java.base/java.util.jar=ALL-UNNAMED --add-opens java.base/java.util.function=ALL-UNNAMED --add-opens java.logging/java.util.logging=ALL-UNNAMED --add-opens java.base/java.nio=ALL-UNNAMED --add-opens java.base/java.lang.reflect=ALL-UNNAMED --add-opens java.base/java.lang.ref=ALL-UNNAMED --add-opens java.base/java.nio.charset=ALL-UNNAMED --add-opens java.base/java.text=ALL-UNNAMED --add-opens java.base/java.util.concurrent.locks=ALL-UNNAMED --add-opens java.base/sun.util.calendar=ALL-UNNAMED"
 
 # If hive.mr3.compaction.using.mr3 in conf/hive-site.xml is set to true, Metastore needs a PersistentVolume.
-# See spec.template.spec.containers.volumeMounts/volumes in yaml/metastore.yaml and helm/hive/templates/metastore.yaml.
-# metastore.mountLib in helm/hive/values.yaml should be set to true to mount the MySQL connector provided by the user.
+# See spec.template.spec.containers.volumeMounts/volumes in yaml/metastore.yaml.
 METASTORE_USE_PERSISTENT_VOLUME=true
 
 # set to false if:

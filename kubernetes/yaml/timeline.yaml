@@ -163,4 +163,4 @@ spec:
           secretName: env-secret
       - name: timeline-work-dir-volume
         persistentVolumeClaim:
-          claimName: workdir-pvc-timeline
+          claimName: workdir-pvc

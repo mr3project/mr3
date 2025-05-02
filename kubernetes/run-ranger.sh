@@ -34,14 +34,6 @@ fi
 # Namespace
 kubectl create namespace $MR3_NAMESPACE
 
-# Volumes
-if [ $CREATE_PERSISTENT_VOLUME = false ]; then
-  echo "do not create PersistentVolume workdir-pv"
-else
-  kubectl create -f $YAML_DIR/workdir-pv-ranger.yaml
-  kubectl create -n $MR3_NAMESPACE -f $YAML_DIR/workdir-pvc-ranger.yaml
-fi
-
 # ConfigMaps
 kubectl create -n $MR3_NAMESPACE configmap hivemr3-ranger-conf-configmap --from-file=$BASE_DIR/ranger-conf/
 

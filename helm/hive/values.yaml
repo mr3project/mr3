@@ -117,9 +117,12 @@ amConfig:
   atsSecretKey:
 
 workDir:
-  # if false, the user should manually create PersistentVolumeClaim of the same name specified by the 
-  # field name.persistentVolume, and PersistentVolume if necessary
+  # true: create PersistentVolume and PersistentVolumeClaim
+  # false: do not create
   create: true
+  # true: use PersistentVolumeClaim (when PersistentVolume is available)
+  # false: do not use PersistentVolumeClaim
+  use: true
 
   isNfs: false
   nfs:

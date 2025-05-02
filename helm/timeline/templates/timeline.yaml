@@ -80,8 +80,10 @@ spec:
         - name: env-secret-k8s-volume
           mountPath: /opt/mr3-run/ats/env.sh
           subPath: env.sh
+        {{- if .Values.workDir.use }}
         - name: timeline-work-dir-volume
           mountPath: /opt/mr3-run/ats/work-dir
+        {{- end }}
       - image: {{ .Values.docker.image }}
         command:
         - /opt/mr3-run/ats/mr3-ui.sh
@@ -130,8 +132,10 @@ spec:
         - name: conf-k8s-volume
           mountPath: /opt/mr3-run/ats/conf
           readOnly: true
+        {{- if .Values.workDir.use }}
         - name: timeline-work-dir-volume
           mountPath: /opt/mr3-run/ats/prometheus/data
+        {{- end }}
       - image: {{ .Values.docker.image }}
         command:
         - /opt/mr3-run/ats/grafana.sh
@@ -156,8 +160,10 @@ spec:
         - name: conf-k8s-volume
           mountPath: /opt/mr3-run/ats/conf
           readOnly: true
+        {{- if .Values.workDir.use }}
         - name: timeline-work-dir-volume
           mountPath: /opt/mr3-run/ats/grafana/data
+        {{- end }}
       volumes:
       - name: conf-k8s-volume
         configMap:
@@ -168,6 +174,8 @@ spec:
       - name: env-secret-k8s-volume
         secret:
           secretName: {{ .Values.name.envSecret }}
+      {{- if .Values.workDir.use }}
       - name: timeline-work-dir-volume
         persistentVolumeClaim:
           claimName: {{ .Values.name.persistentVolumeClaim }}
+      {{- end }}

@@ -29,7 +29,7 @@ kubectl create namespace $MR3_NAMESPACE
 
 if [ $METASTORE_USE_PERSISTENT_VOLUME = true ]; then
   if [ $CREATE_PERSISTENT_VOLUME = false ]; then
-    echo "do not create PersistentVolume workdir-pv"
+    echo "do not create PersistentVolume workdir-pv and PersistentVolumeClaim workdir-pvc"
   else
     kubectl create -f $YAML_DIR/workdir-pv.yaml 
     kubectl create -n $MR3_NAMESPACE -f $YAML_DIR/workdir-pvc.yaml 

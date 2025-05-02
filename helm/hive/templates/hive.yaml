@@ -105,7 +105,7 @@ spec:
           readOnly: true
         - name: am-local-k8s-volume
           mountPath: {{ .Values.dir.base }}/am-local-dir
-        {{- if .Values.workDir.create }}
+        {{- if .Values.workDir.use }}
         - name: work-dir-volume
           mountPath: {{ .Values.dir.persistentVolumeClaim }}
         {{- end }}
@@ -126,7 +126,7 @@ spec:
           secretName: {{ .Values.name.hive.secret }}
       - name: am-local-k8s-volume
         emptyDir: {} 
-      {{- if .Values.workDir.create }}
+      {{- if .Values.workDir.use }}
       - name: work-dir-volume
         persistentVolumeClaim:
           claimName: {{ .Values.name.persistentVolumeClaim }}

@@ -3,8 +3,8 @@ name:
     configMap: hivemr3-timeline-configmap
     secret: hivemr3-timeline-secret
   envSecret: timeline-env-secret
-  persistentVolume: workdir-timeline-pv
-  persistentVolumeClaim: workdir-timeline-pvc
+  persistentVolume: workdir-pv        # must match name.persistentVolume in hive/values.yaml
+  persistentVolumeClaim: workdir-pvc  # must match name.persistentVolumeClaim in hive/values.yaml
 
 docker:
   image: mr3project/mr3ui:1.5
@@ -61,22 +61,9 @@ grafana:
       memory: 512Mi
 
 workDir:
-  # if false, the user should manually create PersistentVolumeClaim of the same name specified by the 
-  # field name.persistentVolume, and PersistentVolume if necessary
-  create: true
-  
-  isNfs: true
-  nfs:
-    server: "1.1.1.1"
-    path: "/work/nfs/timeline"
-  volumeSize: 10Gi
-  volumeClaimSize: 10Gi
-  storageClassName: ""
-  # if isNfs == false, configure a volume like below.
-  # volumeStr should be indented properly with a double space (or multiple double spaces) after '\n'.
-  #   ex. okay  -> volumeStr: "hostPath:\n  path: /work/nfs/mr3-run-work-dir"
-  #   ex. wrong -> volumeStr: "hostPath:\n path: /work/nfs/mr3-run-work-dir"
-  volumeStr: 
+  # true: use PersistentVolumeClaim created for Hive on MR3
+  # false: do not use PersistentVolumeClaim
+  use: true
 
 hostAliases:
 - ip: "1.1.1.1"
