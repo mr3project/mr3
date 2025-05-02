@@ -7,7 +7,7 @@ export function build(s: state.T) {
   const persistentVolumeClaim = env.basics.persistentVolumeClaim;
 
   const annotations =
-    persistentVolumeClaim.annotations !== undefined ?   // on EKS
+    persistentVolumeClaim.annotations !== undefined ?
     { [persistentVolumeClaim.annotations.key]: persistentVolumeClaim.annotations.value } :
     {};
   const selector = 
@@ -17,7 +17,7 @@ export function build(s: state.T) {
       } } :
     {};
   const spec = 
-    persistentVolumeClaim.annotations !== undefined ?   // on EKS
+    persistentVolumeClaim.annotations !== undefined ?
     { resources: { requests: { storage: `${persistentVolumeClaim.storageInGb}Gi` } },
       accessModes: [ "ReadWriteMany" ]
     } :

@@ -17,7 +17,7 @@ src/server/api/basics.ts
   A PersistentVolume can store transient data for Hive in the work directory, as well as permanent data for Ranger, Prometheus (accessed by Grafana), Timeline server (accessed by MR3-UI), and Superset.
   If no PersistentVolume is provided, a path to the work directory should be specified separately.
   If no PersistentVolume is provided, emptyDir volumes are created to store permanent data.
-  In production, using a PersistentVolume is recommended for stability." 
+  In production, using a PersistentVolume is recommended for stability.
 
 - createPersistentVolume.storageInGb
   Storage size of the PersistentVolume in GB
