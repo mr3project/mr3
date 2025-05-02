@@ -15,7 +15,7 @@ export function initial(): T {
       'hive.metastore.pre.event.listeners': "",
       'hive.security.metastore.authorization.auth.reads': false,
       'hive.security.metastore.authorization.manager': "org.apache.hadoop.hive.ql.security.authorization.DefaultHiveMetastoreAuthorizationProvider",
-      'hive.compactor.initiator.on': true,
+      'hive.compactor.initiator.on': false,
       'hive.compactor.worker.threads': 1
     },
     hive: {

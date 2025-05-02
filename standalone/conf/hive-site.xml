@@ -62,12 +62,12 @@
 
 <property>
   <name>hive.compactor.cleaner.on</name>
-  <value>true</value>
+  <value>false</value>
 </property>
 
 <property>
   <name>hive.compactor.initiator.on</name>
-  <value>true</value>
+  <value>false</value>
 </property>
 
 <property>
