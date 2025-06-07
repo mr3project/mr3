@@ -113,16 +113,6 @@
 </property>
 
 <property>
-  <name>tez.shuffle.indexcache.mb</name>
-  <value>20</value>
-</property>
-
-<property>
-  <name>tez.shuffle.indexcache.share</name>
-  <value>true</value>
-</property>
-
-<property>
   <name>tez.shuffle.skip.verify.request</name>
   <value>true</value>
 </property>
