@@ -482,11 +482,6 @@
   <value>2048</value>
 </property>
 
-<property>
-  <name>mr3.k8s.shuffle.process.ports</name>
-  <value>15500,15510,15520,15530,15540,15550,15560,15570</value>
-</property>
-
 <!-- Prometheus -->
 
 <property>

@@ -411,11 +411,6 @@
 </property>
 
 <property>
-  <name>mr3.k8s.shuffle.process.ports</name>
-  <value>7337</value>
-</property>
-
-<property>
   <name>mr3.k8s.shufflehandler.process.memory.mb</name>
   <value>${env.config.mr3['mr3.k8s.shufflehandler.process.memory.mb']}</value>
 </property>

@@ -144,10 +144,7 @@ export function validate(input: T, consts: consts.T): T {
     }
   }
 
-  copy.useDaemonShuffleHandler = copy.useShuffleHandlerProcess ? 0 : copy.numShuffleHandlersPerWorker;
-  copy.shuffleProcessPorts = copy.useShuffleHandlerProcess ? 
-    Array.from({length: copy.numShuffleHandlersPerWorker}, (_, i) => consts.mr3.shufflePort + i).join(","):
-    "";
+  copy.useDaemonShuffleHandler = copy.numShuffleHandlersPerWorker;
 
   return copy;
 }
@@ -170,7 +167,6 @@ export function initial(): T {
     maxReducers: 1009,
     javaHeapFraction: 0.7,
     numShuffleHandlersPerWorker: 8,
-    useShuffleHandlerProcess: true,
     numThreadsPerShuffleHandler: 10,
     enableShuffleSsl: false
   };

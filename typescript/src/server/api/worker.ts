@@ -19,8 +19,7 @@ export interface T {
   maxReducers: number;                        // hive.exec.reducers.max
   javaHeapFraction: number;                   // hive.mr3.container.max.java.heap.fraction
   // shuffle handlers
-  numShuffleHandlersPerWorker: number;        // hive.mr3.use.daemon.shufflehandler, mr3.k8s.shuffle.process.ports
-  useShuffleHandlerProcess: boolean;          // mr3.k8s.shuffle.process.ports
+  numShuffleHandlersPerWorker: number;        // hive.mr3.use.daemon.shufflehandler
   numThreadsPerShuffleHandler: number;        // tez.shuffle.max.threads
   enableShuffleSsl: boolean;                  // tez.runtime.shuffle.ssl.enable
   //
@@ -33,7 +32,6 @@ export interface T {
   taskCores?: number;                 // hive.mr3.map.task.vcores, hive.mr3.reduce.task.vcores
   memoryMappedPath?: string;          // hive.llap.io.allocator.mmap.path, mr3.k8s.pod.worker.additional.hostpaths
   useDaemonShuffleHandler?: number;   // hive.mr3.use.daemon.shufflehandler
-  shuffleProcessPorts?: string;       // mr3.k8s.shuffle.process.ports
   //
   // only for validate()
   //

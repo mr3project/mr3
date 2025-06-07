@@ -366,12 +366,6 @@ src/server/api/worker.ts
   Number of shuffle handlers in a worker
   A worker can create multiple shuffle handlers in order to prevent fetch delays.
 
-- useShuffleHandlerProcess
-  Whether or not to run shuffle handlers in a separate process
-  If disabled, shuffle handlers run as threads of a worker.
-  If enabled, shuffle handlers run in a separate process.
-  In production, running shuffle handlers in a separate process is recommended.
-
 - numThreadsPerShuffleHandler
   Number of shuffle threads to create in each shuffle handler
   A shuffle handler can create multiple shuffle threads for serving shuffle requests.
@@ -496,11 +490,6 @@ src/server/api/sparkmr3.ts
 
 - numMaxWorkers
   Max number of Spark executors
-
-- useShuffleHandlerProcess
-  Whether or not to run shuffle handlers in a separate process
-  If disabled, shuffle handlers run as threads of a Spark executor.
-  If enabled, shuffle handlers run in a separate process.
 
 - concurrencyLevel
   Max number of DAGs that can run concurrently

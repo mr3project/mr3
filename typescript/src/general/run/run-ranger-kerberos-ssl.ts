@@ -138,7 +138,6 @@ const workerEnv: worker.T = {
   maxReducers: 1009,
   javaHeapFraction: 0.7,
   numShuffleHandlersPerWorker: 8,
-  useShuffleHandlerProcess: true,
   numThreadsPerShuffleHandler: 10,
   enableShuffleSsl: true
 };
@@ -201,7 +200,6 @@ const sparkmr3Env: sparkmr3.T = {
   workerCores: 4.0,
   numTasksInWorker: 4,
   numMaxWorkers: 16,
-  useShuffleHandlerProcess: true,
   concurrencyLevel: 32,
   containerSchedulerScheme: "fair",
   dagQueueScheme: "common",

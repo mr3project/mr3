@@ -140,7 +140,7 @@ export function validate(input: T): T {
   copy.maxWorkerMemoryGb = 
     Math.ceil((input.workerMemoryInMb + input.workerMemoryOverheadInMb) * input.numMaxWorkers / 1024);
   copy.maxWorkerCores = Math.ceil(input.workerCores * input.numTasksInWorker);
-  copy.useDaemonShuffleHandler = input.useShuffleHandlerProcess ? 0 : 1;
+  copy.useDaemonShuffleHandler = 1;
 
   return copy;
 }
@@ -157,7 +157,6 @@ export function initial(): T {
     workerCores: 0.0,
     numTasksInWorker: 0,
     numMaxWorkers: 1024,
-    useShuffleHandlerProcess: true,
     concurrencyLevel: 32,
     containerSchedulerScheme: "fair",
     dagQueueScheme: "common",
