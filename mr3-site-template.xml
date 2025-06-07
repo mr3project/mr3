@@ -1895,14 +1895,6 @@
 </property>
 
 <property>
-  <name>mr3.k8s.shufflehandler.process.memory.mb</name>
-  <value>1024</value>
-  <description>
-    Size of memory in MB for the container for shuffle handlers
-  </description>
-</property>
-
-<property>
   <name>mr3.k8s.readiness.probe.initial.delay.secs</name>
   <value>10</value>
   <description>

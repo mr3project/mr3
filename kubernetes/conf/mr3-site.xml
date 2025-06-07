@@ -477,11 +477,6 @@
   <value>busybox</value>
 </property>
 
-<property>
-  <name>mr3.k8s.shufflehandler.process.memory.mb</name>
-  <value>2048</value>
-</property>
-
 <!-- Prometheus -->
 
 <property>

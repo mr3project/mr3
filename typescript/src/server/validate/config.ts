@@ -52,7 +52,6 @@ export function initial(): T {
       'mr3.container.task.failure.num.sleeps': 0,
       'mr3.k8s.pod.worker.security.context.sysctls': "",
       'mr3.k8s.pod.worker.init.container.image': "busybox",
-      'mr3.k8s.shufflehandler.process.memory.mb': 1024
     },
     tez: {
       'tez.counters.max': 10000,
