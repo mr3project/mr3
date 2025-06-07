@@ -171,11 +171,6 @@
 </property>
 
 <property>
-  <name>tez.runtime.enable.final-merge.in.output</name>
-  <value>true</value>
-</property>
-
-<property>
   <name>tez.runtime.shuffle.memory.limit.percent</name>
   <value>0.5</value>
 </property>
