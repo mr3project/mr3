@@ -181,16 +181,6 @@
 </property>
 
 <property>
-  <name>tez.runtime.optimize.local.fetch</name>
-  <value>true</value>
-</property>
-
-<property>
-  <name>tez.runtime.optimize.local.fetch.ordered</name>
-  <value>false</value>
-</property>
-
-<property>
   <name>tez.runtime.shuffle.memory-to-memory.enable</name>
   <value>true</value>
 </property>

@@ -185,17 +185,6 @@
 </property>
 
 <property>
-  <name>tez.runtime.optimize.local.fetch</name>
-  <value>true</value>
-</property>
-
-<!-- set to false if tez.runtime.shuffle.memory-to-memory.enable is set to true -->
-<property>
-  <name>tez.runtime.optimize.local.fetch.ordered</name>
-  <value>false</value>
-</property>
-
-<property>
   <name>tez.runtime.shuffle.memory-to-memory.enable</name>
   <value>true</value>
 </property>
