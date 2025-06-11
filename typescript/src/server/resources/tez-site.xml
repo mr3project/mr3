@@ -162,7 +162,7 @@
 
 <property>
   <name>tez.runtime.shuffle.keep-alive.enabled</name>
-  <value>true</value>
+  <value>false</value>
 </property>
 
 <property>
