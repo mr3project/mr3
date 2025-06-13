@@ -148,7 +148,7 @@
 
 <property>
   <name>tez.runtime.shuffle.connect.timeout</name>
-  <value>7500</value>
+  <value>27500</value>
   <description>
     Set to 2500 in order not to retry when a connection failure occurs.
   </description>
@@ -213,21 +213,6 @@
 <property>
   <name>tez.runtime.shuffle.max.input.hostports</name>
   <value>10000</value>
-</property>
-
-<property>
-  <name>tez.runtime.shuffle.speculative.fetch.wait.millis</name>
-  <value>30000</value>
-</property>
-
-<property>
-  <name>tez.runtime.shuffle.stuck.fetcher.threshold.millis</name>
-  <value>3000</value>
-</property>
-
-<property>
-  <name>tez.runtime.shuffle.stuck.fetcher.release.millis</name>
-  <value>15000</value>
 </property>
 
 <!-- Secure Shuffle -->

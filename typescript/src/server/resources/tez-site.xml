@@ -211,21 +211,6 @@
 </property>
 
 <property>
-  <name>tez.runtime.shuffle.speculative.fetch.wait.millis</name>
-  <value>30000</value>
-</property>
-
-<property>
-  <name>tez.runtime.shuffle.stuck.fetcher.threshold.millis</name>
-  <value>3000</value>
-</property>
-
-<property>
-  <name>tez.runtime.shuffle.stuck.fetcher.release.millis</name>
-  <value>15000</value>
-</property>
-
-<property>
   <name>tez.runtime.shuffle.ssl.enable</name>
   <value>${env.worker.enableShuffleSsl}</value>
 </property>

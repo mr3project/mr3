@@ -69,7 +69,7 @@ export function initial(): T {
       'tez.shuffle.connection-keep-alive.enable': false,
       'tez.shuffle.listen.queue.size': 16384,
       'tez.shuffle.mapoutput-info.meta.cache.size': 10000,
-      'tez.runtime.shuffle.connect.timeout': 7500,
+      'tez.runtime.shuffle.connect.timeout': 27500,
       'tez.grouping.max-size': 1073741824,
       'tez.grouping.min-size': 16777216,
       'tez.grouping.split-waves': 1.7
