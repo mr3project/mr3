@@ -451,11 +451,6 @@
 </property>
 
 <property>
-  <name>mr3.am.task.concurrent.run.threshold.percent</name>
-  <value>99</value>
-</property>
-
-<property>
   <name>mr3.am.task.concurrent.run.enable.root.vertex</name>
   <value>true</value>
 </property>
