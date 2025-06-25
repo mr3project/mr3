@@ -543,15 +543,6 @@
 </property>
     
 <property>
-  <name>hive.mr3.aux.jars</name>
-  <value>hive-llap-common-4.0.0.jar,hive-llap-server-4.0.0.jar,hive-llap-tez-4.0.0.jar,hive-iceberg-handler-4.0.0.jar,log4j-1.2-api-2.18.0.jar,orc-core-2.0.3.jar,orc-format-1.0.0.jar,orc-shims-2.0.3.jar,orc-tools-2.0.3.jar</value>
-  <description>
-    Include Iceberg jar, even if mr3.am.permit.custom.user.class is set to true,
-    because IcebergInputFormat may use URLClassLoader.
-  </description>
-</property>
-
-<property>
   <name>hive.mr3.exec.print.summary</name>
   <value>true</value>
 </property>
