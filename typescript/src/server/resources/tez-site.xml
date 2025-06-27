@@ -121,21 +121,6 @@
 </property>
 
 <property>
-  <name>tez.runtime.io.sort.mb</name>
-  <value>${env.worker.tezIoSortMb}</value>
-</property>
-
-<property>
-  <name>tez.runtime.unordered.output.buffer.size-mb</name>
-  <value>${env.worker.tezUnorderedOutputBufferSizeInMb}</value>
-</property>
-
-<property>
-  <name>tez.runtime.pipelined.sorter.lazy-allocate.memory</name>
-  <value>${env.config.tez['tez.runtime.pipelined.sorter.lazy-allocate.memory']}</value>
-</property>
-
-<property>
   <name>tez.runtime.pipelined.sorter.sort.threads</name>
   <value>${env.config.tez['tez.runtime.pipelined.sorter.sort.threads']}</value>
 </property>
@@ -143,11 +128,6 @@
 <property>
   <name>tez.runtime.pipelined.sorter.use.soft.reference</name>
   <value>${env.worker.useSoftReference}</value>
-</property>
-
-<property>
-  <name>tez.runtime.report.partition.stats</name>
-  <value>precise</value>
 </property>
 
 <property>
@@ -163,36 +143,6 @@
 <property>
   <name>tez.runtime.shuffle.keep-alive.enabled</name>
   <value>false</value>
-</property>
-
-<property>
-  <name>tez.runtime.pipelined-shuffle.enabled</name>
-  <value>false</value>
-</property>
-
-<property>
-  <name>tez.runtime.shuffle.memory.limit.percent</name>
-  <value>0.5</value>
-</property>
-
-<property>
-  <name>tez.runtime.task.input.post-merge.buffer.percent</name>
-  <value>0.9</value>
-</property>
-
-<property>
-  <name>tez.runtime.shuffle.memory-to-memory.enable</name>
-  <value>true</value>
-</property>
-
-<property>
-  <name>tez.runtime.use.free.memory.fetched.input</name>
-  <value>true</value>
-</property>
-
-<property>
-  <name>tez.runtime.shuffle.parallel.copies</name>
-  <value>${env.config.tez['tez.runtime.shuffle.parallel.copies']}</value>
 </property>
 
 <property>
@@ -233,6 +183,81 @@
 <property>
   <name>tez.mrreader.config.update.properties</name>
   <value>hive.io.file.readcolumn.names,hive.io.file.readcolumn.ids</value>
+</property>
+
+<property>
+  <name>tez.runtime.io.sort.mb</name>
+  <value>${env.worker.tezIoSortMb}</value>
+</property>
+
+<property>
+  <name>tez.runtime.pipelined.sorter.lazy-allocate.memory</name>
+  <value>${env.config.tez['tez.runtime.pipelined.sorter.lazy-allocate.memory']}</value>
+</property>
+
+<property>
+  <name>tez.runtime.unordered.output.buffer.size-mb</name>
+  <value>${env.worker.tezUnorderedOutputBufferSizeInMb}</value>
+</property>
+
+<property>
+  <name>tez.runtime.report.partition.stats</name>
+  <value>precise</value>
+</property>
+
+<property>
+  <name>tez.runtime.shuffle.parallel.copies</name>
+  <value>${env.config.tez['tez.runtime.shuffle.parallel.copies']}</value>
+</property>
+
+<property>
+  <name>tez.runtime.shuffle.memory.limit.percent</name>
+  <value>0.5</value>
+</property>
+
+<property>
+  <name>tez.runtime.shuffle.memory-to-memory.enable</name>
+  <value>true</value>
+</property>
+
+<property>
+  <name>tez.runtime.task.input.post-merge.buffer.percent</name>
+  <value>0.9</value>
+</property>
+
+<property>
+  <name>tez.runtime.pipelined-shuffle.enabled</name>
+  <value>true</value>
+</property>
+
+<property>
+  <name>tez.runtime.use.free.memory.fetched.input</name>
+  <value>true</value>
+</property>
+
+<property>
+  <name>tez.runtime.use.free.memory.writer.output</name>
+  <value>true</value>
+</property>
+
+<property>
+  <name>tez.runtime.shuffle.speculative.fetch.wait.millis</name>
+  <value>12500</value>
+</property>
+
+<property>
+  <name>tez.runtime.shuffle.stuck.fetcher.threshold.millis</name>
+  <value>2500</value>
+</property>
+
+<property>
+  <name>tez.runtime.shuffle.stuck.fetcher.release.millis</name>
+  <value>7500</value>
+</property>
+
+<property>
+  <name>tez.runtime.shuffle.max.speculative.fetch.attempts</name>
+  <value>2</value>
 </property>
 
 </configuration>

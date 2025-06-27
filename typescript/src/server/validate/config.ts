@@ -61,7 +61,7 @@ export function initial(): T {
       'tez.shuffle-vertex-manager.min-src-fraction': 0.2,
       'tez.runtime.pipelined.sorter.lazy-allocate.memory': true,
       'tez.runtime.shuffle.parallel.copies': 10, 
-      'tez.runtime.shuffle.total.parallel.copies': 180, 
+      'tez.runtime.shuffle.total.parallel.copies': 360,
       'tez.shuffle-vertex-manager.auto-parallel.min.num.tasks': 251,
       'tez.shuffle-vertex-manager.auto-parallel.max.reduction.percentage': 50,
       'tez.shuffle-vertex-manager.use-stats-auto-parallelism': true,
