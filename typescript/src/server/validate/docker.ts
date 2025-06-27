@@ -76,8 +76,8 @@ export function validate(input: spark): spark {
 export function initial(): spark {
   return {
     docker: {
-      image: "mr3project/hive:4.0.0.mr3.2.0",
-      containerWorkerImage: "mr3project/hive:4.0.0.mr3.2.0",
+      image: "mr3project/hive:4.0.0.mr3.2.1",
+      containerWorkerImage: "mr3project/hive:4.0.0.mr3.2.1",
       rangerImage: "mr3project/ranger:2.6.0",
       atsImage: "mr3project/mr3ui:1.5",                     // use MR3 version
       supersetImage: "mr3project/superset:1.4.2",

@@ -51,7 +51,7 @@ CREATE_SERVICE_ACCOUNTS=true
 # Step 1. Docker images
 #
 
-DOCKER_HIVE_IMG=${DOCKER_HIVE_IMG:-mr3project/hive:4.0.0.mr3.2.0}
+DOCKER_HIVE_IMG=${DOCKER_HIVE_IMG:-mr3project/hive:4.0.0.mr3.2.1}
 DOCKER_HIVE_WORKER_IMG=$DOCKER_HIVE_IMG
 
 # do not use a composite name like hive@RED, hive/red0@RED (which results in NPE in ContainerWorker)
