@@ -599,6 +599,11 @@
 </property>
 
 <property>
+  <name>hive.mr3.delete.vertex.local.directory</name>
+  <value>true</value>
+</property>
+
+<property>
   <name>hive.mr3.bucket.mapjoin.estimate.num.nodes</name>
   <value>-1</value>
   <description>
