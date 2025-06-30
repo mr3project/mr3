@@ -47,7 +47,7 @@ function run_worker {
 
     JAVA=$JAVA_HOME/bin/java
 
-    PROCESS_CONTAINER_WORKER_MEMORY_XMS=$(($PROCESS_CONTAINER_WORKER_MEMORY_XMX / 2))
+    PROCESS_CONTAINER_WORKER_MEMORY_XMS=$PROCESS_CONTAINER_WORKER_MEMORY_XMX
 
     JAVA_OPTS="-XX:+AlwaysPreTouch -Xss512k -XX:+UseG1GC -XX:+UseNUMA -XX:InitiatingHeapOccupancyPercent=40 -XX:G1ReservePercent=20 -XX:MaxGCPauseMillis=200 -XX:MetaspaceSize=1024m -Djava.net.preferIPv4Stack=true"
 
@@ -66,7 +66,6 @@ $JAVA_OPTS"
 -Dsun.security.jgss.debug=true $JAVA_OPTS"
 
     JAVA_OPTS="-Dmr3.root.logger=$LOG_LEVEL $JAVA_OPTS"
-    JAVA_OPTS="$HADOOP_CLIENT_OPTS $JAVA_OPTS"
 
     common_setup_cleanup 
 
