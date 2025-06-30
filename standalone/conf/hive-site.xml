@@ -553,11 +553,6 @@
 </property>
 
 <property>
-  <name>hive.mr3.container.max.java.heap.fraction</name>
-  <value>0.8f</value>
-</property>
-
-<property>
   <name>hive.mr3.resource.vcores.divisor</name>
   <value>1</value>
 </property>
