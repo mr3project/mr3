@@ -185,6 +185,15 @@
 </property>
 
 <property>
+  <name>mr3.am.rpc.protection</name>
+  <value>authentication</value>
+  <description>
+    Configuration key coresponding to 'hadoop.rpc.protection'.
+    set to "privacy" for encrypting messages.
+  </description>
+</property>
+
+<property>
   <name>mr3.am.max.app.attempts</name>
   <value>2</value>
   <description>
