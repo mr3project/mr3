@@ -506,6 +506,11 @@
 </property>
 
 <property>
+  <name>hive.llap.client.consistent.splits</name>
+  <value>true</value>
+</property>
+
+<property>
   <name>hive.llap.io.etl.skip.format</name>
   <value>none</value>
 </property>
@@ -523,11 +528,6 @@
 <property>
   <name>hive.llap.daemon.service.hosts</name>
   <value></value>
-</property>
-
-<property>
-  <name>hive.llap.client.consistent.splits</name>
-  <value>true</value>
 </property>
 
 <property>

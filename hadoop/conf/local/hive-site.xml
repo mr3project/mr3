@@ -399,11 +399,6 @@
 </property>
 
 <property>
-  <name>hive.llap.client.consistent.splits</name>
-  <value>true</value>
-</property>
-
-<property>
   <name>hive.llap.execution.mode</name>
   <value>all</value>
 </property>
