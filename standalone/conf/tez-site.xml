@@ -285,6 +285,11 @@
 </property>
 
 <property>
+  <name>tez.runtime.free.memory.writer.output.threshold.mb</name>
+  <value>6144</value>
+</property>
+
+<property>
   <name>tez.runtime.shuffle.speculative.fetch.wait.millis</name>
   <value>12500</value>
 </property>
