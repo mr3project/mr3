@@ -85,16 +85,6 @@ For instructions, visit:
 
   https://mr3docs.datamonad.com/docs/quick/k8s/
 
-On Kubernetes - TypeScript
-==========================
-TypeScript code that generates YAML files for running Hive on MR3 on Kubernetes
-
-  /typescript - TypeScript code
-
-For instructions, visit:
-
-  https://mr3docs.datamonad.com/docs/quick/k8s/
-
 On Amazon EKS with Autoscaling
 ==============================
 Additional steps for running Hive on MR3 on Amazon EKS

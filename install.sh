@@ -34,20 +34,16 @@ tar -xzf "$TAR_FILE" --strip-components=1
 echo "Installing MR3 binary files --- Completed"
 
 mkdir -p kubernetes/key
-mkdir -p kubernetes/ats-key
-mkdir -p kubernetes/timeline-key
 
 rm -f helm/hive/conf
 rm -f helm/hive/key
 rm -f helm/timeline/conf
-rm -f helm/timeline/key
 rm -f helm/ranger/conf
 rm -f helm/ranger/key
 
 ln -s ../../kubernetes/conf helm/hive/conf
 ln -s ../../kubernetes/key helm/hive/key
 ln -s ../../kubernetes/timeline-conf helm/timeline/conf
-ln -s ../../kubernetes/timeline-key helm/timeline/key
 ln -s ../../kubernetes/ranger-conf helm/ranger/conf
 ln -s ../../kubernetes/ranger-key helm/ranger/key
 

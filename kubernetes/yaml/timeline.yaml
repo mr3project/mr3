@@ -37,70 +37,6 @@ spec:
       containers:
       - image: mr3project/mr3ui:1.5
         command:
-        - /opt/mr3-run/ats/timeline-service.sh
-        imagePullPolicy: Always
-        name: timelineserver-http
-        env:
-        - name: ATS_SECRET_KEY
-          valueFrom:
-            configMapKeyRef:
-              name: client-timeline-config
-              key: ats-secret-key
-        resources:
-          requests:
-            cpu: 0.25
-            memory: 1024Mi
-          limits:
-            cpu: 0.25
-            memory: 1024Mi
-        ports:
-        - containerPort: 9190
-          protocol: TCP
-        - containerPort: 9188
-          protocol: TCP
-        livenessProbe:
-          tcpSocket:
-            port: 9188
-          initialDelaySeconds: 120
-          periodSeconds: 120
-        volumeMounts:
-        - name: conf-k8s-volume
-          mountPath: /opt/mr3-run/ats/conf/
-          readOnly: true
-        - name: key-k8s-volume
-          mountPath: /opt/mr3-run/ats/key/
-          readOnly: true
-        - name: env-secret-k8s-volume
-          mountPath: /opt/mr3-run/ats/env.sh
-          subPath: env.sh
-        - name: timeline-work-dir-volume
-          mountPath: /opt/mr3-run/ats/work-dir/
-      - image: mr3project/mr3ui:1.5
-        command:
-        - /opt/mr3-run/ats/mr3-ui.sh
-        imagePullPolicy: Always
-        name: mr3-ui-jetty
-        resources:
-          requests:
-            cpu: 0.25
-            memory: 512Mi
-          limits:
-            cpu: 0.25
-            memory: 512Mi
-        ports:
-        - containerPort: 8080
-          protocol: TCP
-        livenessProbe:
-          tcpSocket:
-            port: 8080
-          initialDelaySeconds: 120
-          periodSeconds: 120
-        volumeMounts:
-        - name: conf-k8s-volume
-          mountPath: /opt/mr3-run/ats/conf/
-          readOnly: true
-      - image: mr3project/mr3ui:1.5
-        command:
         - /opt/mr3-run/ats/prometheus.sh
         imagePullPolicy: Always
         name: prometheus
@@ -155,9 +91,6 @@ spec:
       - name: conf-k8s-volume
         configMap:
           name: hivemr3-timeline-conf-configmap
-      - name: key-k8s-volume
-        secret:
-          secretName: hivemr3-timeline-secret
       - name: env-secret-k8s-volume
         secret:
           secretName: env-secret

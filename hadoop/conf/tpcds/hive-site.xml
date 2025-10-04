@@ -608,6 +608,7 @@
 </property>
 
 <!-- When using Kerberos on Hadoop, remove "yarn." to get Master Kerberos principal -->
+<!-- To pass LevelDB configuration parameters for MR3-UI, remove "yarn." -->
 <property>
   <name>hive.mr3.dag.config.remove.prefixes</name>
   <value>atlas.,datanucleus.,metastore.,hive.acid.,hive.compactor.,hive.druid.,hive.in.,hive.llap.daemon.,hive.metastore.,hive.query.results.,hive.repl.,hive.scheduled.,hive.security.,hive.server2.,hive.test,hive.zookeeper.,mapreduce.jobhistory.,yarn.,hadoop.proxyuser.,hadoop.zk.,ipc.,javax.jdo.</value>

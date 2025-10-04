@@ -74,11 +74,6 @@ spec:
             configMapKeyRef:
               name: {{ .Values.name.amConfigMap }}
               key: mr3sessionid
-        - name: ATS_SECRET_KEY
-          valueFrom:
-            configMapKeyRef:
-              name: {{ .Values.name.amConfigMap }}
-              key: ats-secret-key
         resources:
           requests:
             cpu: {{ .Values.metastore.resources.requests.cpu }}

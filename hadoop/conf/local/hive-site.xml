@@ -1,16 +1,6 @@
 <configuration>
 
 <property>
-  <name>atlas.hook.hive.maxThreads</name>
-  <value>1</value>
-</property>
-
-<property>
-  <name>atlas.hook.hive.minThreads</name>
-  <value>1</value>
-</property>
-
-<property>
   <name>datanucleus.autoCreateSchema</name>
   <value>false</value>
 </property>
@@ -477,13 +467,13 @@
 
 <property>
   <name>hive.mr3.dag.config.remove.prefixes</name>
-  <value>atlas.,datanucleus.,metastore.,hive.acid.,hive.compactor.,hive.druid.,hive.in.,hive.llap.daemon.,hive.metastore.,hive.query.results.,hive.repl.,hive.scheduled.,hive.security.,hive.server2.,hive.test,hive.zookeeper.,mapreduce.jobhistory.,yarn.,hadoop.proxyuser.,hadoop.zk.,ipc.,javax.jdo.</value>
+  <value>datanucleus.,metastore.,hive.acid.,hive.compactor.,hive.druid.,hive.in.,hive.llap.daemon.,hive.metastore.,hive.query.results.,hive.repl.,hive.scheduled.,hive.security.,hive.server2.,hive.test,hive.zookeeper.,javax.jdo.</value>
 </property>
 
 <property>
   <name>hive.mr3.session.config.remove.prefixes</name>
   <value></value>
-  <value>atlas.,datanucleus.,metastore.,hive.,mapreduce.jobhistory.,hadoop.zk.,javax.jdo.</value>
+  <value>atlas.,datanucleus.,metastore.,hive.,javax.jdo.</value>
 </property>
 
 <!-- Iceberg -->

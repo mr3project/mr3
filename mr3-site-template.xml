@@ -1070,6 +1070,7 @@
   <description>
     true: collect framework counters (on garbage collection and process statistics) in ContainerWorkers.
     false: do not collect framework counters.
+    Set to true when using MR3-UI.
   </description>
 </property>
 
@@ -1372,6 +1373,84 @@
     false: disable history logging for Tasks.
   </description>
 </property>
+
+<!-- MR3-UI -->
+
+<property>
+  <name>mr3.ui.create.server</name>
+  <value>false</value>
+  <description>
+    true: create an HTTP server for MR3-UI
+    false: do not create
+  </description>
+</property>
+
+<property>
+  <name>mr3.ui.timline.store.type</name>
+  <value>memory</value>
+  <description>
+    memory: use an in-memory database for Timeline Server
+    leveldb: use LevelDB for Timeline Server
+  </description>
+</property>
+
+<property>
+  <name>mr3.ui.timeline-service.leveldb-timeline-store.path</name>
+  <value>/tmp/</value>
+  <description>
+    Directory to store data for LevelDB.
+    See LevelDbTimelineStore.java for other configuration keys.
+  </description>
+</property>
+
+<property>
+  <name>mr3.ui.server.port</name>
+  <value>19003</value>
+  <description>
+    Host associated with the HTTP server for MR3-UI
+  </description>
+</property>
+
+<property>
+  <name>mr3.ui.server.host</name>
+  <value>0.0.0.0</value>
+  <description>
+    Host associated with the HTTP server for MR3-UI
+  </description>
+</property>
+
+<property>
+  <name>mr3.ui.server.max.threads</name>
+  <value>10</value>
+  <description>
+    Max number of threads in the HTTP server for MR3-UI
+  </description>
+</property>
+
+<property>
+  <name>mr3.ui.server.admin.users</name>
+  <value></value>
+  <description>
+    Comma-separated list of users with administrator privilege in MR3-UI
+  </description>
+</property>
+
+<!--
+  MR3 uses the following security configuration keys in the HTTP server for MR3-UI:
+    mr3.ui.server.use.ssl
+    mr3.ui.server.ssl.keystore.path
+    mr3.ui.server.use.spnego
+    mr3.ui.server.spnego.principal
+    mr3.ui.server.spnego.keytab
+    mr3.ui.server.enable.cors
+    mr3.ui.server.cors.allowed.origins
+    mr3.ui.server.cors.allowed.methods
+    mr3.ui.server.cors.allowed.headers
+    mr3.ui.server.xframe.enabled
+    mr3.ui.server.xframe.value
+    mr3.ui.server.use.pam
+    mr3.ui.server.pam.services
+ -->
 
 <!-- tez.common.counters.Limits -->
 

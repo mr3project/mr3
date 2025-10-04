@@ -44,72 +44,6 @@ spec:
       containers:
       - image: {{ .Values.docker.image }}
         command:
-        - /opt/mr3-run/ats/timeline-service.sh
-        imagePullPolicy: {{ .Values.docker.imagePullPolicy }}
-        name: timelineserver-http
-        env:
-        - name: ATS_SECRET_KEY
-          valueFrom:
-            configMapKeyRef:
-              name: client-timeline-config
-              key: ats-secret-key
-        resources:
-          requests:
-            cpu: {{ .Values.timeline.resources.requests.cpu }}
-            memory: {{ .Values.timeline.resources.requests.memory }}
-          limits:
-            cpu: {{ .Values.timeline.resources.limits.cpu }}
-            memory: {{ .Values.timeline.resources.limits.memory }}
-        ports:
-        - containerPort: 9190
-          protocol: TCP
-        - containerPort: 9188
-          protocol: TCP
-        livenessProbe:
-          tcpSocket:
-            port: 9188
-          initialDelaySeconds: 120
-          periodSeconds: 120
-        volumeMounts:
-        - name: conf-k8s-volume
-          mountPath: /opt/mr3-run/ats/conf
-          readOnly: true
-        - name: key-k8s-volume
-          mountPath: /opt/mr3-run/ats/key
-          readOnly: true
-        - name: env-secret-k8s-volume
-          mountPath: /opt/mr3-run/ats/env.sh
-          subPath: env.sh
-        {{- if .Values.workDir.use }}
-        - name: timeline-work-dir-volume
-          mountPath: /opt/mr3-run/ats/work-dir
-        {{- end }}
-      - image: {{ .Values.docker.image }}
-        command:
-        - /opt/mr3-run/ats/mr3-ui.sh
-        imagePullPolicy: {{ .Values.docker.imagePullPolicy }}
-        name: mr3-ui-jetty
-        resources:
-          requests:
-            cpu: {{ .Values.ui.resources.requests.cpu }}
-            memory: {{ .Values.ui.resources.requests.memory }}
-          limits:
-            cpu: {{ .Values.ui.resources.limits.cpu }}
-            memory: {{ .Values.ui.resources.limits.memory }}
-        ports:
-        - containerPort: 8080
-          protocol: TCP
-        livenessProbe:
-          tcpSocket:
-            port: 8080
-          initialDelaySeconds: 120
-          periodSeconds: 120
-        volumeMounts:
-        - name: conf-k8s-volume
-          mountPath: /opt/mr3-run/ats/conf
-          readOnly: true
-      - image: {{ .Values.docker.image }}
-        command:
         - /opt/mr3-run/ats/prometheus.sh
         imagePullPolicy: {{ .Values.docker.imagePullPolicy }}
         name: prometheus
@@ -168,12 +102,6 @@ spec:
       - name: conf-k8s-volume
         configMap:
           name: {{ .Values.name.timeline.configMap }}
-      - name: key-k8s-volume
-        secret:
-          secretName: {{ .Values.name.timeline.secret }}
-      - name: env-secret-k8s-volume
-        secret:
-          secretName: {{ .Values.name.envSecret }}
       {{- if .Values.workDir.use }}
       - name: timeline-work-dir-volume
         persistentVolumeClaim:

@@ -1,7 +1,7 @@
 apiVersion: v1
 name: timeline
-version: 1.0.0
-description: YARN Timeline Server for MR3
+version: 2.0.0
+description: MR3-UI and Grafana for MR3
 home: https://datamonad.com
 sources:
   - https://github.com/mr3project/timeline-mr3

@@ -51,7 +51,7 @@ CREATE_SERVICE_ACCOUNTS=true
 # Step 1. Docker images
 #
 
-DOCKER_HIVE_IMG=${DOCKER_HIVE_IMG:-mr3project/hive:4.0.0.mr3.2.1}
+DOCKER_HIVE_IMG=${DOCKER_HIVE_IMG:-mr3project/hive:4.0.0.mr3.2.2}
 DOCKER_HIVE_WORKER_IMG=$DOCKER_HIVE_IMG
 
 # do not use a composite name like hive@RED, hive/red0@RED (which results in NPE in ContainerWorker)
@@ -85,7 +85,6 @@ WORKER_SECRET_DIR=$BASE_DIR/key/       # can be set to '$BASEDIR/workersecret/'
 WORKER_SECRET=hivemr3-worker-secret
 
 CREATE_RANGER_SECRET=true   # specifies whether or not to create a Secret from ranger-key/*
-CREATE_TIMELINE_SECRET=true # specifies whether or not to create a Secret from timeline-key/*
 
 #
 # Step 3. Update YAML files

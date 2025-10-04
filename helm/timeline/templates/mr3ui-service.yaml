@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: hivemr3
+  name: mr3-ui
+spec:
+  type: LoadBalancer
+  ports:
+  - protocol: TCP
+    port: {{ .Values.ui.httpPort }}
+    targetPort: 19003
+    name: http
+  selector:
+    hivemr3_app: mr3-master
+  externalIPs:
+  - {{ .Values.timeline.externalIp }}
+

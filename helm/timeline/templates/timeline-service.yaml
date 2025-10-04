@@ -8,18 +8,6 @@ spec:
   selector:
     hivemr3_app: timeline
   ports:
-  - name: timelineserver-http
-    protocol: TCP
-    port: {{ .Values.timeline.httpPort }}
-    targetPort: 9188
-  - name: timelineserver-https
-    protocol: TCP
-    port: {{ .Values.timeline.httpsPort }}
-    targetPort: 9190
-  - name: mr3-ui-jetty
-    protocol: TCP
-    port: {{ .Values.ui.httpPort }}
-    targetPort: 8080
   - name: prometheus
     protocol: TCP
     port: {{ .Values.prometheus.httpPort }}

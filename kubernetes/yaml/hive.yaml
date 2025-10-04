@@ -34,7 +34,7 @@ spec:
                 matchLabels:
                   hivemr3_app: metastore
       containers:
-      - image: mr3project/hive:4.0.0.mr3.2.1
+      - image: mr3project/hive:4.0.0.mr3.2.2
         command: ["/opt/mr3-run/hive/hiveserver2-service.sh"]
         args: ["start", "--kubernetes"]
         imagePullPolicy: Always
@@ -55,11 +55,6 @@ spec:
             configMapKeyRef:
               name: client-am-config
               key: mr3sessionid
-        - name: ATS_SECRET_KEY
-          valueFrom:
-            configMapKeyRef:
-              name: client-am-config
-              key: ats-secret-key
         resources:
           requests:
             cpu: 2

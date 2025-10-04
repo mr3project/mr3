@@ -472,6 +472,83 @@
   <value>busybox</value>
 </property>
 
+<!-- MR3-UI -->
+
+<property>
+  <name>mr3.container.use.framework.counters</name>
+  <value>true</value>
+</property>
+
+<property>
+  <name>mr3.am.acls.enabled</name>
+  <value>false</value>
+</property>
+
+<property>
+  <name>mr3.app.history.logging.enabled</name>
+  <value>false</value>
+</property>
+
+<property>
+  <name>mr3.dag.history.logging.enabled</name>
+  <value>false</value>
+</property>
+
+<property>
+  <name>mr3.task.history.logging.enabled</name>
+  <value>false</value>
+</property>
+
+<property>
+  <name>mr3.ui.create.server</name>
+  <value>false</value>
+</property>
+
+<property>
+  <name>mr3.ui.timeline.store.type</name>
+  <value>leveldb</value>
+</property>
+
+<property>
+  <name>mr3.ui.server.port</name>
+  <value>19003</value>
+</property>
+
+<property>
+  <name>mr3.ui.server.host</name>
+  <value>0.0.0.0</value>
+</property>
+
+<property>
+  <name>mr3.ui.server.admin.users</name>
+  <value>hive</value>
+</property>
+
+<property>
+  <name>mr3.ui.timeline-service.leveldb-timeline-store.path</name>
+  <value>/opt/mr3-run/work-dir/leveldb</value>
+</property>
+
+<property>
+  <name>mr3.ui.server.enable.cors</name>
+  <value>true</value>
+</property>
+
+<property>
+  <name>mr3.ui.server.cors.allowed.origins</name>
+  <value>*</value>
+</property>
+
+<property>
+  <name>mr3.ui.server.cors.allowed.methods</name>
+  <value>GET,POST,PUT,DELETE,OPTIONS</value>
+</property>
+
+<property>
+  <name>mr3.ui.server.cors.allowed.headers</name>
+  <value>Content-Type,Authorization,Accept</value>
+</property>
+
 <!-- Prometheus -->
 
 <property>

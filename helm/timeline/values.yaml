@@ -1,8 +1,6 @@
 name:
   timeline:
     configMap: hivemr3-timeline-configmap
-    secret: hivemr3-timeline-secret
-  envSecret: timeline-env-secret
   persistentVolume: workdir-pv        # must match name.persistentVolume in hive/values.yaml
   persistentVolumeClaim: workdir-pvc  # must match name.persistentVolumeClaim in hive/values.yaml
 
@@ -11,34 +9,8 @@ docker:
   imagePullPolicy: Always
   imagePullSecrets: 
 
-timeline:
-  # if not set, a random value will be generated
-  # should match amConf.atsSecretKey in hive/values.yaml
-  secretKey: 
-    
-  httpPort: 9188
-  httpsPort: 9190
-  externalIp: 1.1.1.1
-
-  createSecret: true
-
-  resources:
-    requests:
-      cpu: 1
-      memory: 4Gi
-    limits:
-      cpu: 1
-      memory: 4Gi
-
 ui:
-  httpPort: 8080
-  resources:
-    requests:
-      cpu: 0.25
-      memory: 512Mi
-    limits:
-      cpu: 0.25
-      memory: 512Mi
+  httpPort: 19003
 
 prometheus:
   httpPort: 9090

@@ -21,7 +21,7 @@ source $BASE_DIR/env.sh
 # Configuration
 #
 
-DOCKER_MR3UI_IMG=mr3project/mr3ui:1.5
+DOCKER_MR3UI_IMG=mr3project/mr3ui:2.2
 PROMETHEUS_WORK_DIR=/home/hive/prometheus
 
 LOCAL_HOST=192.168.10.101

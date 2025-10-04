@@ -19,8 +19,8 @@
 ENABLE_SSL=false
 ENABLE_SSL_RANGER=false
 
-# If ENABLE_SSL/ENABLE_SSL_RANGER is set to true, run-hive.sh, run-timeline.sh, and run-ranger.sh create the following files
-# and copy them to key/, timeline-key/, and ranger-key/, respectively:
+# If ENABLE_SSL/ENABLE_SSL_RANGER is set to true, run-hive.sh and run-ranger.sh create the following files
+# and copy them to key/ and ranger-key/, respectively:
 #   hivemr3-ssl-certificate.jceks
 #   hivemr3-ssl-certificate.jks
 #   .hivemr3-ssl-certificate.jceks.crc

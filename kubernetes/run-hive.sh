@@ -89,16 +89,10 @@ RANDOM_MR3_SHARED_SESSION_ID=$(cat /proc/sys/kernel/random/uuid)
 MR3_SHARED_SESSION_ID=${MR3_SHARED_SESSION_ID:-$RANDOM_MR3_SHARED_SESSION_ID}
 echo "MR3_SHARED_SESSION_ID=$MR3_SHARED_SESSION_ID"
 
-# reuse ATS_SECRET_KEY if already defined; use a random UUID otherwise
-RANDOM_ATS_SECRET_KEY=$(cat /proc/sys/kernel/random/uuid)
-ATS_SECRET_KEY=${ATS_SECRET_KEY:-$RANDOM_ATS_SECRET_KEY}
-echo "ATS_SECRET_KEY=$ATS_SECRET_KEY"
-
 kubectl create -n $MR3_NAMESPACE configmap client-am-config \
   --from-literal=key=$CLIENT_TO_AM_TOKEN_KEY \
   --from-literal=timestamp=$MR3_APPLICATION_ID_TIMESTAMP \
-  --from-literal=mr3sessionid=$MR3_SHARED_SESSION_ID \
-  --from-literal=ats-secret-key=$ATS_SECRET_KEY
+  --from-literal=mr3sessionid=$MR3_SHARED_SESSION_ID
 
 if [ $CREATE_PROMETHEUS_SERVICE = true ]; then
   kubectl create -f $YAML_DIR/prometheus-service.yaml

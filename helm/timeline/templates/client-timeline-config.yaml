@@ -3,4 +3,3 @@ kind: ConfigMap
 metadata:
   name: client-timeline-config
 data:
-  ats-secret-key: {{ .Values.timeline.secretKey | default uuidv4 | quote }}
