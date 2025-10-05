@@ -1,0 +1,214 @@
+diff --git a/hadoop/conf/local/hive-site.xml b/hadoop/conf/local/hive-site.xml
+index 797c3dc..93911db 100644
+--- a/hadoop/conf/local/hive-site.xml
++++ b/hadoop/conf/local/hive-site.xml
+@@ -395,7 +395,7 @@
+ 
+ <property>
+   <name>hive.mr3.aux.jars</name>
+-  <value>hive-llap-common-4.0.0.jar,hive-llap-server-4.0.0.jar,hive-llap-tez-4.0.0.jar,hive-iceberg-handler-4.0.0.jar,log4j-1.2-api-2.18.0.jar,orc-core-2.0.3.jar,orc-format-1.0.0.jar,orc-shims-2.0.3.jar,orc-tools-2.0.3.jar</value>
++  <value>hive-llap-common-4.0.0.jar,hive-llap-server-4.0.0.jar,hive-llap-tez-4.0.0.jar,hive-iceberg-handler-4.0.0.jar,log4j-1.2-api-2.18.0.jar</value>
+ </property>
+ 
+ <property>
+diff --git a/hadoop/conf/local/mr3-site.xml b/hadoop/conf/local/mr3-site.xml
+index af3d230..1c73706 100644
+--- a/hadoop/conf/local/mr3-site.xml
++++ b/hadoop/conf/local/mr3-site.xml
+@@ -34,7 +34,7 @@
+ 
+ <property>
+   <name>mr3.am.launch.cmd-opts</name>
+-  <value>-XX:+UseG1GC -XX:+UseNUMA -Djava.net.preferIPv4Stack=true -Dhadoop.metrics.log.level=WARN --add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/java.net=ALL-UNNAMED --add-opens java.base/java.util=ALL-UNNAMED --add-opens java.base/java.time=ALL-UNNAMED --add-opens java.base/java.io=ALL-UNNAMED --add-opens java.base/java.util.concurrent=ALL-UNNAMED --add-opens java.base/java.util.concurrent.atomic=ALL-UNNAMED --add-opens java.base/java.util.regex=ALL-UNNAMED --add-opens java.base/java.util.zip=ALL-UNNAMED --add-opens java.base/java.util.stream=ALL-UNNAMED --add-opens java.base/java.util.jar=ALL-UNNAMED --add-opens java.base/java.util.function=ALL-UNNAMED --add-opens java.logging/java.util.logging=ALL-UNNAMED --add-opens java.base/java.nio=ALL-UNNAMED --add-opens java.base/java.lang.reflect=ALL-UNNAMED --add-opens java.base/java.lang.ref=ALL-UNNAMED --add-opens java.base/java.nio.charset=ALL-UNNAMED --add-opens java.base/java.text=ALL-UNNAMED --add-opens java.base/java.util.concurrent.locks=ALL-UNNAMED --add-opens java.base/sun.util.calendar=ALL-UNNAMED</value>
++  <value>-XX:+UseG1GC -XX:+UseNUMA -Djava.net.preferIPv4Stack=true -Dhadoop.metrics.log.level=WARN -XX:+AggressiveOpts</value>
+ </property>
+ 
+ <property>
+diff --git a/hadoop/conf/tpcds/hive-site.xml b/hadoop/conf/tpcds/hive-site.xml
+index 36e50ca..df7d319 100644
+--- a/hadoop/conf/tpcds/hive-site.xml
++++ b/hadoop/conf/tpcds/hive-site.xml
+@@ -510,7 +510,7 @@
+     
+ <property>
+   <name>hive.mr3.aux.jars</name>
+-  <value>hive-llap-common-4.0.0.jar,hive-llap-server-4.0.0.jar,hive-llap-tez-4.0.0.jar,hive-iceberg-handler-4.0.0.jar,log4j-1.2-api-2.18.0.jar,orc-core-2.0.3.jar,orc-format-1.0.0.jar,orc-shims-2.0.3.jar,orc-tools-2.0.3.jar</value>
++  <value>hive-llap-common-4.0.0.jar,hive-llap-server-4.0.0.jar,hive-llap-tez-4.0.0.jar,hive-iceberg-handler-4.0.0.jar,log4j-1.2-api-2.18.0.jar</value>
+   <description>
+     Include Iceberg jar, even if mr3.am.permit.custom.user.class is set to true,
+     because IcebergInputFormat may use URLClassLoader.
+diff --git a/hadoop/conf/tpcds/mr3-site.xml b/hadoop/conf/tpcds/mr3-site.xml
+index 8a13b69..2b260b2 100644
+--- a/hadoop/conf/tpcds/mr3-site.xml
++++ b/hadoop/conf/tpcds/mr3-site.xml
+@@ -42,7 +42,7 @@
+ 
+ <property>
+   <name>mr3.am.launch.cmd-opts</name>
+-  <value>-XX:+AlwaysPreTouch -Xss512k -XX:+UseG1GC -XX:+UseNUMA -XX:InitiatingHeapOccupancyPercent=40 -XX:G1ReservePercent=20 -XX:MaxGCPauseMillis=200 -XX:MetaspaceSize=1024m -Djava.net.preferIPv4Stack=true --add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/java.net=ALL-UNNAMED --add-opens java.base/java.util=ALL-UNNAMED --add-opens java.base/java.time=ALL-UNNAMED --add-opens java.base/java.io=ALL-UNNAMED --add-opens java.base/java.util.concurrent=ALL-UNNAMED --add-opens java.base/java.util.concurrent.atomic=ALL-UNNAMED --add-opens java.base/java.util.regex=ALL-UNNAMED --add-opens java.base/java.util.zip=ALL-UNNAMED --add-opens java.base/java.util.stream=ALL-UNNAMED --add-opens java.base/java.util.jar=ALL-UNNAMED --add-opens java.base/java.util.function=ALL-UNNAMED --add-opens java.logging/java.util.logging=ALL-UNNAMED --add-opens java.base/java.nio=ALL-UNNAMED --add-opens java.base/java.lang.reflect=ALL-UNNAMED --add-opens java.base/java.lang.ref=ALL-UNNAMED --add-opens java.base/java.nio.charset=ALL-UNNAMED --add-opens java.base/java.text=ALL-UNNAMED --add-opens java.base/java.util.concurrent.locks=ALL-UNNAMED --add-opens java.base/sun.util.calendar=ALL-UNNAMED</value>
++  <value>-XX:+AlwaysPreTouch -Xss512k -XX:+UseG1GC -XX:+UseNUMA -XX:InitiatingHeapOccupancyPercent=40 -XX:G1ReservePercent=20 -XX:MaxGCPauseMillis=200 -XX:MetaspaceSize=1024m -Djava.net.preferIPv4Stack=true -XX:+AggressiveOpts</value>
+ </property>
+ 
+ <property>
+@@ -93,7 +93,7 @@
+ 
+ <property>
+   <name>mr3.container.launch.cmd-opts</name>
+-  <value>-XX:+AlwaysPreTouch -Xss512k -XX:+UseG1GC -XX:+UseNUMA -XX:InitiatingHeapOccupancyPercent=40 -XX:G1ReservePercent=20 -XX:MaxGCPauseMillis=200 -XX:MetaspaceSize=1024m -Djava.net.preferIPv4Stack=true --add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/java.net=ALL-UNNAMED --add-opens java.base/java.util=ALL-UNNAMED --add-opens java.base/java.time=ALL-UNNAMED --add-opens java.base/java.io=ALL-UNNAMED --add-opens java.base/java.util.concurrent=ALL-UNNAMED --add-opens java.base/java.util.concurrent.atomic=ALL-UNNAMED --add-opens java.base/java.util.regex=ALL-UNNAMED --add-opens java.base/java.util.zip=ALL-UNNAMED --add-opens java.base/java.util.stream=ALL-UNNAMED --add-opens java.base/java.util.jar=ALL-UNNAMED --add-opens java.base/java.util.function=ALL-UNNAMED --add-opens java.logging/java.util.logging=ALL-UNNAMED --add-opens java.base/java.nio=ALL-UNNAMED --add-opens java.base/java.lang.reflect=ALL-UNNAMED --add-opens java.base/java.lang.ref=ALL-UNNAMED --add-opens java.base/java.nio.charset=ALL-UNNAMED --add-opens java.base/java.text=ALL-UNNAMED --add-opens java.base/java.util.concurrent.locks=ALL-UNNAMED --add-opens java.base/sun.util.calendar=ALL-UNNAMED</value>
++  <value>-XX:+AlwaysPreTouch -Xss512k -XX:+UseG1GC -XX:+UseNUMA -XX:InitiatingHeapOccupancyPercent=40 -XX:G1ReservePercent=20 -XX:MaxGCPauseMillis=200 -XX:MetaspaceSize=1024m -Djava.net.preferIPv4Stack=true -XX:+AggressiveOpts</value>
+ </property>
+ 
+ <property>
+diff --git a/hadoop/env.sh b/hadoop/env.sh
+index d6a6a0b..52f091a 100755
+--- a/hadoop/env.sh
++++ b/hadoop/env.sh
+@@ -22,7 +22,7 @@
+ 
+ # Set JAVA_HOME if not set yet
+ #
+-#export JAVA_HOME=/usr/lib/java17/
++#export JAVA_HOME=/usr/lib/java/
+ #export PATH=$JAVA_HOME/bin:$PATH
+ 
+ # In order to start Metastore and HiveServer2 with Java 17,
+@@ -30,7 +30,7 @@
+ 
+ # JAVA_HOME for executing MR3 DAGAppMaster and ContainerWorkers
+ # Used to update mr3.am.launch.env and mr3.container.launch.env in mr3-site.xml
+-MR3_JAVA_HOME=/usr/lib/java17/
++MR3_JAVA_HOME=/usr/lib/java/
+ 
+ #
+ # Step 2. Local directories for Hadoop
+@@ -60,7 +60,7 @@ HADOOP_HOME_LOCAL=$STANDALONE_BASE_DIR/hadoop/apache-hadoop
+ 
+ # HIVE_MR3_JVM_OPTION = JVM options for Metastore and HiveServer2
+ HIVE_MR3_JVM_OPTION="-XX:+UseG1GC -XX:+UseNUMA -Djava.net.preferIPv4Stack=true"
+-HIVE_MR3_JVM_OPTION="$HIVE_MR3_JVM_OPTION --add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/java.net=ALL-UNNAMED --add-opens java.base/java.util=ALL-UNNAMED --add-opens java.base/java.time=ALL-UNNAMED --add-opens java.base/java.io=ALL-UNNAMED --add-opens java.base/java.util.concurrent=ALL-UNNAMED --add-opens java.base/java.util.concurrent.atomic=ALL-UNNAMED --add-opens java.base/java.util.regex=ALL-UNNAMED --add-opens java.base/java.util.zip=ALL-UNNAMED --add-opens java.base/java.util.stream=ALL-UNNAMED --add-opens java.base/java.util.jar=ALL-UNNAMED --add-opens java.base/java.util.function=ALL-UNNAMED --add-opens java.logging/java.util.logging=ALL-UNNAMED --add-opens java.base/java.nio=ALL-UNNAMED --add-opens java.base/java.lang.reflect=ALL-UNNAMED --add-opens java.base/java.lang.ref=ALL-UNNAMED --add-opens java.base/java.nio.charset=ALL-UNNAMED --add-opens java.base/java.text=ALL-UNNAMED --add-opens java.base/java.util.concurrent.locks=ALL-UNNAMED --add-opens java.base/sun.util.calendar=ALL-UNNAMED"
++HIVE_MR3_JVM_OPTION="$HIVE_MR3_JVM_OPTION -XX:+AggressiveOpts"
+ 
+ # Heap size in MB for Metastore
+ HIVE_METASTORE_HEAPSIZE=32768
+diff --git a/helm/hive/env.sh b/helm/hive/env.sh
+index f8785b2..5db8d53 100644
+--- a/helm/hive/env.sh
++++ b/helm/hive/env.sh
+@@ -27,7 +27,7 @@ WORK_DIR_PERSISTENT_VOLUME_CLAIM_MOUNT_DIR={{.Values.dir.persistentVolumeClaim}}
+ # JAVA_HOME and PATH are already set inside the container.
+ 
+ HIVE_MR3_JVM_OPTION="-XX:+UseG1GC -XX:+UseNUMA -Djava.net.preferIPv4Stack=true"
+-HIVE_MR3_JVM_OPTION="$HIVE_MR3_JVM_OPTION --add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/java.net=ALL-UNNAMED --add-opens java.base/java.util=ALL-UNNAMED --add-opens java.base/java.time=ALL-UNNAMED --add-opens java.base/java.io=ALL-UNNAMED --add-opens java.base/java.util.concurrent=ALL-UNNAMED --add-opens java.base/java.util.concurrent.atomic=ALL-UNNAMED --add-opens java.base/java.util.regex=ALL-UNNAMED --add-opens java.base/java.util.zip=ALL-UNNAMED --add-opens java.base/java.util.stream=ALL-UNNAMED --add-opens java.base/java.util.jar=ALL-UNNAMED --add-opens java.base/java.util.function=ALL-UNNAMED --add-opens java.logging/java.util.logging=ALL-UNNAMED --add-opens java.base/java.nio=ALL-UNNAMED --add-opens java.base/java.lang.reflect=ALL-UNNAMED --add-opens java.base/java.lang.ref=ALL-UNNAMED --add-opens java.base/java.nio.charset=ALL-UNNAMED --add-opens java.base/java.text=ALL-UNNAMED --add-opens java.base/java.util.concurrent.locks=ALL-UNNAMED --add-opens java.base/sun.util.calendar=ALL-UNNAMED"
++HIVE_MR3_JVM_OPTION="$HIVE_MR3_JVM_OPTION -XX:+AggressiveOpts"
+ 
+ #
+ # Step 1. Docker images
+diff --git a/kubernetes/conf/mr3-site.xml b/kubernetes/conf/mr3-site.xml
+index e88ae6c..9a989e3 100644
+--- a/kubernetes/conf/mr3-site.xml
++++ b/kubernetes/conf/mr3-site.xml
+@@ -16,10 +16,10 @@
+      -Djavax.security.auth.useSubjectCredsOnly=false
+      -Djava.security.auth.login.config=/opt/mr3-run/conf/jgss.conf
+      -Dsun.security.jgss.debug=true -->
+-<!-- add-opens java.base/java.lang=ALL-UNNAMED is added by run-master.sh -->
++<!-- -->
+ <property>
+   <name>mr3.am.launch.cmd-opts</name>
+-  <value>-XX:+AlwaysPreTouch -Xss512k -XX:+UseG1GC -XX:+UseNUMA -XX:InitiatingHeapOccupancyPercent=40 -XX:G1ReservePercent=20 -XX:MaxGCPauseMillis=200 -XX:MetaspaceSize=1024m -Djava.net.preferIPv4Stack=true -Dhadoop.metrics.log.level=WARN -Dlog4j.configurationFile=k8s-mr3-container-log4j2.properties -Djavax.net.ssl.trustStore=/opt/mr3-run/key/hivemr3-ssl-certificate.jks -Djavax.net.ssl.trustStoreType=jks</value>
++  <value>-XX:+AlwaysPreTouch -Xss512k -XX:+UseG1GC -XX:+UseNUMA -XX:InitiatingHeapOccupancyPercent=40 -XX:G1ReservePercent=20 -XX:MaxGCPauseMillis=200 -XX:MetaspaceSize=1024m -Djava.net.preferIPv4Stack=true -Dhadoop.metrics.log.level=WARN -Dlog4j.configurationFile=k8s-mr3-container-log4j2.properties -Djavax.net.ssl.trustStore=/opt/mr3-run/key/hivemr3-ssl-certificate.jks -Djavax.net.ssl.trustStoreType=jks -XX:+AggressiveOpts</value>
+ </property>
+ 
+ <property>
+@@ -56,10 +56,10 @@
+ 
+ <!-- container -->
+ 
+-<!-- add-opens java.base/java.lang=ALL-UNNAMED is added by run-worker.sh -->
++<!-- -->
+ <property>
+   <name>mr3.container.launch.cmd-opts</name>
+-  <value>-XX:+AlwaysPreTouch -Xss512k -XX:+UseG1GC -XX:+UseNUMA -XX:InitiatingHeapOccupancyPercent=40 -XX:G1ReservePercent=20 -XX:MaxGCPauseMillis=200 -XX:MetaspaceSize=1024m -Djava.net.preferIPv4Stack=true -Dlog4j.configurationFile=k8s-mr3-container-log4j2.properties -Djavax.net.ssl.trustStore=/opt/mr3-run/key/hivemr3-ssl-certificate.jks -Djavax.net.ssl.trustStoreType=jks</value>
++  <value>-XX:+AlwaysPreTouch -Xss512k -XX:+UseG1GC -XX:+UseNUMA -XX:InitiatingHeapOccupancyPercent=40 -XX:G1ReservePercent=20 -XX:MaxGCPauseMillis=200 -XX:MetaspaceSize=1024m -Djava.net.preferIPv4Stack=true -Dlog4j.configurationFile=k8s-mr3-container-log4j2.properties -Djavax.net.ssl.trustStore=/opt/mr3-run/key/hivemr3-ssl-certificate.jks -Djavax.net.ssl.trustStoreType=jks -XX:+AggressiveOpts</value>
+ </property>
+ 
+ <property>
+diff --git a/kubernetes/env.sh b/kubernetes/env.sh
+index 241474b..7a5cbb5 100755
+--- a/kubernetes/env.sh
++++ b/kubernetes/env.sh
+@@ -30,11 +30,11 @@ WORK_DIR_PERSISTENT_VOLUME_CLAIM_MOUNT_DIR=/opt/mr3-run/work-dir
+ 
+ # JAVA_HOME and PATH are already set inside the container.
+ 
+-# Cf. run-master.sh and run-worker.sh set "--add-opens".
++#
+ 
+ # HIVE_MR3_JVM_OPTION = JVM options for Metastore and HiveServer2
+ HIVE_MR3_JVM_OPTION="-XX:+UseG1GC -XX:+UseNUMA -Djava.net.preferIPv4Stack=true"
+-HIVE_MR3_JVM_OPTION="$HIVE_MR3_JVM_OPTION --add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/java.net=ALL-UNNAMED --add-opens java.base/java.util=ALL-UNNAMED --add-opens java.base/java.time=ALL-UNNAMED --add-opens java.base/java.io=ALL-UNNAMED --add-opens java.base/java.util.concurrent=ALL-UNNAMED --add-opens java.base/java.util.concurrent.atomic=ALL-UNNAMED --add-opens java.base/java.util.regex=ALL-UNNAMED --add-opens java.base/java.util.zip=ALL-UNNAMED --add-opens java.base/java.util.stream=ALL-UNNAMED --add-opens java.base/java.util.jar=ALL-UNNAMED --add-opens java.base/java.util.function=ALL-UNNAMED --add-opens java.logging/java.util.logging=ALL-UNNAMED --add-opens java.base/java.nio=ALL-UNNAMED --add-opens java.base/java.lang.reflect=ALL-UNNAMED --add-opens java.base/java.lang.ref=ALL-UNNAMED --add-opens java.base/java.nio.charset=ALL-UNNAMED --add-opens java.base/java.text=ALL-UNNAMED --add-opens java.base/java.util.concurrent.locks=ALL-UNNAMED --add-opens java.base/sun.util.calendar=ALL-UNNAMED"
++HIVE_MR3_JVM_OPTION="$HIVE_MR3_JVM_OPTION -XX:+AggressiveOpts"
+ 
+ # If hive.mr3.compaction.using.mr3 in conf/hive-site.xml is set to true, Metastore needs a PersistentVolume.
+ # See spec.template.spec.containers.volumeMounts/volumes in yaml/metastore.yaml.
+diff --git a/standalone/conf/mr3-site.xml b/standalone/conf/mr3-site.xml
+index 6549f04..6386798 100644
+--- a/standalone/conf/mr3-site.xml
++++ b/standalone/conf/mr3-site.xml
+@@ -18,7 +18,7 @@
+      -Dsun.security.jgss.debug=true -->
+ <property>
+   <name>mr3.am.launch.cmd-opts</name>
+-  <value>-XX:+AlwaysPreTouch -Xss512k -XX:+UseG1GC -XX:+UseNUMA -XX:InitiatingHeapOccupancyPercent=40 -XX:G1ReservePercent=20 -XX:MaxGCPauseMillis=200 -XX:MetaspaceSize=1024m -Djava.net.preferIPv4Stack=true --add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/java.net=ALL-UNNAMED --add-opens java.base/java.util=ALL-UNNAMED --add-opens java.base/java.time=ALL-UNNAMED --add-opens java.base/java.io=ALL-UNNAMED --add-opens java.base/java.util.concurrent=ALL-UNNAMED --add-opens java.base/java.util.concurrent.atomic=ALL-UNNAMED --add-opens java.base/java.util.regex=ALL-UNNAMED --add-opens java.base/java.util.zip=ALL-UNNAMED --add-opens java.base/java.util.stream=ALL-UNNAMED --add-opens java.base/java.util.jar=ALL-UNNAMED --add-opens java.base/java.util.function=ALL-UNNAMED --add-opens java.logging/java.util.logging=ALL-UNNAMED --add-opens java.base/java.nio=ALL-UNNAMED --add-opens java.base/java.lang.reflect=ALL-UNNAMED --add-opens java.base/java.lang.ref=ALL-UNNAMED --add-opens java.base/java.nio.charset=ALL-UNNAMED --add-opens java.base/java.text=ALL-UNNAMED --add-opens java.base/java.util.concurrent.locks=ALL-UNNAMED --add-opens java.base/sun.util.calendar=ALL-UNNAMED -Dhadoop.metrics.log.level=WARN -Dlog4j.configurationFile=mr3-container-log4j2.properties -Djavax.net.ssl.trustStore=${base.key.dir}/hivemr3-ssl-certificate.jks -Djavax.net.ssl.trustStoreType=jks</value>
++  <value>-XX:+AlwaysPreTouch -Xss512k -XX:+UseG1GC -XX:+UseNUMA -XX:InitiatingHeapOccupancyPercent=40 -XX:G1ReservePercent=20 -XX:MaxGCPauseMillis=200 -XX:MetaspaceSize=1024m -Djava.net.preferIPv4Stack=true -XX:+AggressiveOpts</value>
+ </property>
+ 
+ <property>
+diff --git a/standalone/env.sh b/standalone/env.sh
+index a3a6a89..c7d2563 100755
+--- a/standalone/env.sh
++++ b/standalone/env.sh
+@@ -25,7 +25,7 @@ KEYTAB_MOUNT_DIR=$BASE_DIR/key
+ 
+ # Set JAVA_HOME if not set yet
+ #
+-#export JAVA_HOME=/usr/lib/java17/
++#export JAVA_HOME=/usr/lib/java/
+ #export PATH=$JAVA_HOME/bin:$PATH
+ 
+ #
+@@ -36,7 +36,7 @@ KEYTAB_MOUNT_DIR=$BASE_DIR/key
+ 
+ # HIVE_MR3_JVM_OPTION = JVM options for Metastore and HiveServer2
+ HIVE_MR3_JVM_OPTION="-XX:+UseG1GC -XX:+UseNUMA -Djava.net.preferIPv4Stack=true"
+-HIVE_MR3_JVM_OPTION="$HIVE_MR3_JVM_OPTION --add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/java.net=ALL-UNNAMED --add-opens java.base/java.util=ALL-UNNAMED --add-opens java.base/java.time=ALL-UNNAMED --add-opens java.base/java.io=ALL-UNNAMED --add-opens java.base/java.util.concurrent=ALL-UNNAMED --add-opens java.base/java.util.concurrent.atomic=ALL-UNNAMED --add-opens java.base/java.util.regex=ALL-UNNAMED --add-opens java.base/java.util.zip=ALL-UNNAMED --add-opens java.base/java.util.stream=ALL-UNNAMED --add-opens java.base/java.util.jar=ALL-UNNAMED --add-opens java.base/java.util.function=ALL-UNNAMED --add-opens java.logging/java.util.logging=ALL-UNNAMED --add-opens java.base/java.nio=ALL-UNNAMED --add-opens java.base/java.lang.reflect=ALL-UNNAMED --add-opens java.base/java.lang.ref=ALL-UNNAMED --add-opens java.base/java.nio.charset=ALL-UNNAMED --add-opens java.base/java.text=ALL-UNNAMED --add-opens java.base/java.util.concurrent.locks=ALL-UNNAMED --add-opens java.base/sun.util.calendar=ALL-UNNAMED"
++HIVE_MR3_JVM_OPTION="$HIVE_MR3_JVM_OPTION -XX:+AggressiveOpts"
+ 
+ # Heap size in MB for Metastore
+ HIVE_METASTORE_HEAPSIZE=32768
+diff --git a/standalone/hadoop/hadoop-setup.sh b/standalone/hadoop/hadoop-setup.sh
+index c811cab..af1c132 100755
+--- a/standalone/hadoop/hadoop-setup.sh
++++ b/standalone/hadoop/hadoop-setup.sh
+@@ -21,7 +21,7 @@ function hadoop_setup_init {
+ 
+     export PATH=$HADOOP_HOME/bin:$HADOOP_HOME/sbin:$PATH
+ 
+-    export HADOOP_CLIENT_OPTS="$HADOOP_CLIENT_OPTS --add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/java.net=ALL-UNNAMED --add-opens java.base/java.util=ALL-UNNAMED --add-opens java.base/java.time=ALL-UNNAMED --add-opens java.base/java.io=ALL-UNNAMED --add-opens java.base/java.util.concurrent=ALL-UNNAMED --add-opens java.base/java.util.concurrent.atomic=ALL-UNNAMED --add-opens java.base/java.util.regex=ALL-UNNAMED --add-opens java.base/java.util.zip=ALL-UNNAMED --add-opens java.base/java.util.stream=ALL-UNNAMED --add-opens java.base/java.util.jar=ALL-UNNAMED --add-opens java.base/java.util.function=ALL-UNNAMED --add-opens java.logging/java.util.logging=ALL-UNNAMED --add-opens java.base/java.nio=ALL-UNNAMED --add-opens java.base/java.lang.reflect=ALL-UNNAMED --add-opens java.base/java.lang.ref=ALL-UNNAMED --add-opens java.base/java.nio.charset=ALL-UNNAMED --add-opens java.base/java.text=ALL-UNNAMED --add-opens java.base/java.util.concurrent.locks=ALL-UNNAMED --add-opens java.base/sun.util.calendar=ALL-UNNAMED"
++    export HADOOP_CLIENT_OPTS="$HADOOP_CLIENT_OPTS -XX:+AggressiveOpts"
+ }
+ 
+ function hadoop_setup_update_conf_dir {
+diff --git a/standalone/hive/run-worker.sh b/standalone/hive/run-worker.sh
+index 7dcd05f..c254a4c 100755
+--- a/standalone/hive/run-worker.sh
++++ b/standalone/hive/run-worker.sh
+@@ -51,7 +51,7 @@ function run_worker {
+ 
+     JAVA_OPTS="-XX:+AlwaysPreTouch -Xss512k -XX:+UseG1GC -XX:+UseNUMA -XX:InitiatingHeapOccupancyPercent=40 -XX:G1ReservePercent=20 -XX:MaxGCPauseMillis=200 -XX:MetaspaceSize=1024m -Djava.net.preferIPv4Stack=true"
+ 
+-    JAVA_OPTS="$JAVA_OPTS --add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/java.net=ALL-UNNAMED --add-opens java.base/java.util=ALL-UNNAMED --add-opens java.base/java.time=ALL-UNNAMED --add-opens java.base/java.io=ALL-UNNAMED --add-opens java.base/java.util.concurrent=ALL-UNNAMED --add-opens java.base/java.util.concurrent.atomic=ALL-UNNAMED --add-opens java.base/java.util.regex=ALL-UNNAMED --add-opens java.base/java.util.zip=ALL-UNNAMED --add-opens java.base/java.util.stream=ALL-UNNAMED --add-opens java.base/java.util.jar=ALL-UNNAMED --add-opens java.base/java.util.function=ALL-UNNAMED --add-opens java.logging/java.util.logging=ALL-UNNAMED --add-opens java.base/java.nio=ALL-UNNAMED --add-opens java.base/java.lang.reflect=ALL-UNNAMED --add-opens java.base/java.lang.ref=ALL-UNNAMED --add-opens java.base/java.nio.charset=ALL-UNNAMED --add-opens java.base/java.text=ALL-UNNAMED --add-opens java.base/java.util.concurrent.locks=ALL-UNNAMED --add-opens java.base/sun.util.calendar=ALL-UNNAMED"
++    JAVA_OPTS="$JAVA_OPTS -XX:+AggressiveOpts"
+ 
+     JAVA_OPTS="\
+ -Xmx${PROCESS_CONTAINER_WORKER_MEMORY_XMX}m \
