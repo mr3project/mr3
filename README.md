@@ -29,9 +29,9 @@ This is the git repository for the MR3 release.
 
 Installing binary files
 =======================
-In order to install binary files of Hive on MR3, execute install.sh, e.g.:
+For instructions, visit:
 
-  ./install.sh https://github.com/mr3project/mr3/releases/download/v2.1/hive4-mr3-2.1.tar.gz
+  https://mr3docs.datamonad.com/docs/quick/install/
 
 Please see LICENSE-MR3.txt for the license of the binary files.
 
