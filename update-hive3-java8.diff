@@ -1,8 +1,88 @@
 diff --git a/hadoop/conf/local/hive-site.xml b/hadoop/conf/local/hive-site.xml
-index 797c3dc..f69e1fb 100644
+index 797c3dc..594dc07 100644
 --- a/hadoop/conf/local/hive-site.xml
 +++ b/hadoop/conf/local/hive-site.xml
-@@ -395,7 +395,7 @@
+@@ -184,6 +184,11 @@
+   <value>true</value>
+ </property>
+ 
++<property>
++  <name>hive.optimize.index.filter</name>
++  <value>true</value>
++</property>
++
+ <property>
+   <name>hive.optimize.metadataonly</name>
+   <value>true</value>
+@@ -209,6 +214,11 @@
+   <value>binary</value>
+ </property>
+ 
++<property>
++  <name>hive.stats.fetch.column.stats</name>
++  <value>true</value>
++</property>
++
+ <property>
+   <name>hive.support.concurrency</name>
+   <value>true</value>
+@@ -219,6 +229,11 @@
+   <value>true</value>
+ </property>
+ 
++<property>
++  <name>hive.tez.bucket.pruning</name>
++  <value>true</value>
++</property>
++
+ <property>
+   <name>hive.txn.manager</name>
+   <value>org.apache.hadoop.hive.ql.lockmgr.DbTxnManager</value>
+@@ -246,31 +261,6 @@
+ 
+ <!-- Correctness -->
+ 
+-<property>
+-  <name>hive.optimize.shared.work.dppunion</name>
+-  <value>false</value>
+-</property>
+-
+-<property>
+-  <name>hive.optimize.shared.work.dppunion.merge.eventops</name>
+-  <value>false</value>
+-</property>
+-
+-<property>
+-  <name>hive.optimize.shared.work.downstream.merge</name>
+-  <value>false</value>
+-</property>
+-
+-<property>
+-  <name>hive.optimize.shared.work.parallel.edge.support</name>
+-  <value>false</value>
+-</property>
+-
+-<property>
+-  <name>hive.optimize.shared.work.merge.ts.schema</name>
+-  <value>false</value>
+-</property>
+-
+ <property>
+   <name>hive.optimize.cte.materialize.threshold</name>
+   <value>-1</value>
+@@ -366,11 +356,6 @@
+   <value>10</value>
+ </property>
+ 
+-<property>
+-  <name>hive.llap.io.etl.skip.format</name>
+-  <value>none</value>
+-</property>
+-
+ <!-- MR3 -->
+ 
+ <property>
+@@ -395,7 +380,7 @@
  
  <property>
    <name>hive.mr3.aux.jars</name>
@@ -25,10 +105,102 @@ index af3d230..1c73706 100644
  
  <property>
 diff --git a/hadoop/conf/tpcds/hive-site.xml b/hadoop/conf/tpcds/hive-site.xml
-index 36e50ca..29629ed 100644
+index 36e50ca..7c26dee 100644
 --- a/hadoop/conf/tpcds/hive-site.xml
 +++ b/hadoop/conf/tpcds/hive-site.xml
-@@ -510,11 +510,7 @@
+@@ -84,11 +84,6 @@
+   <value>true</value>
+ </property>
+ 
+-<property>
+-  <name>hive.compactor.cleaner.on</name>
+-  <value>false</value>
+-</property>
+-
+ <property>
+   <name>hive.compactor.initiator.on</name>
+   <value>false</value>
+@@ -227,6 +222,11 @@
+   <value>true</value>
+ </property>
+ 
++<property>
++  <name>hive.optimize.index.filter</name>
++  <value>true</value>
++</property>
++
+ <property>
+   <name>hive.optimize.metadataonly</name>
+   <value>true</value>
+@@ -257,6 +257,11 @@
+   <value>binary</value>
+ </property>
+ 
++<property>
++  <name>hive.stats.fetch.column.stats</name>
++  <value>true</value>
++</property>
++
+ <property>
+   <name>hive.support.concurrency</name>
+   <value>true</value>
+@@ -267,6 +272,11 @@
+   <value>true</value>
+ </property>
+ 
++<property>
++  <name>hive.tez.bucket.pruning</name>
++  <value>true</value>
++</property>
++
+ <property>
+   <name>hive.txn.manager</name>
+   <value>org.apache.hadoop.hive.ql.lockmgr.DbTxnManager</value>
+@@ -297,31 +307,6 @@
+ 
+ <!-- Correctness -->
+ 
+-<property>
+-  <name>hive.optimize.shared.work.dppunion</name>
+-  <value>false</value>
+-</property>
+-
+-<property>
+-  <name>hive.optimize.shared.work.dppunion.merge.eventops</name>
+-  <value>false</value>
+-</property>
+-
+-<property>
+-  <name>hive.optimize.shared.work.downstream.merge</name>
+-  <value>false</value>
+-</property>
+-
+-<property>
+-  <name>hive.optimize.shared.work.parallel.edge.support</name>
+-  <value>false</value>
+-</property>
+-
+-<property>
+-  <name>hive.optimize.shared.work.merge.ts.schema</name>
+-  <value>false</value>
+-</property>
+-
+ <property>
+   <name>hive.optimize.cte.materialize.threshold</name>
+   <value>-1</value>
+@@ -473,11 +458,6 @@
+   <value>true</value>
+ </property>
+ 
+-<property>
+-  <name>hive.llap.io.etl.skip.format</name>
+-  <value>none</value>
+-</property>
+-
+ <!-- MR3 -->
+ 
+ <property>
+@@ -510,11 +490,7 @@
      
  <property>
    <name>hive.mr3.aux.jars</name>
@@ -131,6 +303,102 @@ index f444d3e..2447d93 100644
    # do not use a composite name like hive@RED, hive/red0@RED
    user: hive
    imagePullPolicy: IfNotPresent
+diff --git a/kubernetes/conf/hive-site.xml b/kubernetes/conf/hive-site.xml
+index d22d9bf..7f8c438 100644
+--- a/kubernetes/conf/hive-site.xml
++++ b/kubernetes/conf/hive-site.xml
+@@ -60,11 +60,6 @@
+   <value>true</value>
+ </property>
+ 
+-<property>
+-  <name>hive.compactor.cleaner.on</name>
+-  <value>false</value>
+-</property>
+-
+ <property>
+   <name>hive.compactor.initiator.on</name>
+   <value>false</value>
+@@ -206,6 +201,11 @@
+   <value>true</value>
+ </property>
+ 
++<property>
++  <name>hive.optimize.index.filter</name>
++  <value>true</value>
++</property>
++
+ <property>
+   <name>hive.optimize.metadataonly</name>
+   <value>true</value>
+@@ -231,6 +231,11 @@
+   <value>all</value>
+ </property>
+ 
++<property>
++  <name>hive.stats.fetch.column.stats</name>
++  <value>true</value>
++</property>
++
+ <property>
+   <name>hive.support.concurrency</name>
+   <value>true</value>
+@@ -241,6 +246,11 @@
+   <value>true</value>
+ </property>
+ 
++<property>
++  <name>hive.tez.bucket.pruning</name>
++  <value>true</value>
++</property>
++
+ <property>
+   <name>hive.txn.manager</name>
+   <value>org.apache.hadoop.hive.ql.lockmgr.DbTxnManager</value>
+@@ -271,31 +281,6 @@
+ 
+ <!-- Correctness -->
+ 
+-<property>
+-  <name>hive.optimize.shared.work.dppunion</name>
+-  <value>false</value>
+-</property>
+-
+-<property>
+-  <name>hive.optimize.shared.work.dppunion.merge.eventops</name>
+-  <value>false</value>
+-</property>
+-
+-<property>
+-  <name>hive.optimize.shared.work.downstream.merge</name>
+-  <value>false</value>
+-</property>
+-
+-<property>
+-  <name>hive.optimize.shared.work.parallel.edge.support</name>
+-  <value>false</value>
+-</property>
+-
+-<property>
+-  <name>hive.optimize.shared.work.merge.ts.schema</name>
+-  <value>false</value>
+-</property>
+-
+ <property>
+   <name>hive.optimize.cte.materialize.threshold</name>
+   <value>-1</value>
+@@ -508,11 +493,6 @@
+   <value>true</value>
+ </property>
+ 
+-<property>
+-  <name>hive.llap.io.etl.skip.format</name>
+-  <value>none</value>
+-</property>
+-
+ <!-- MR3 -->
+ 
+ <property>
 diff --git a/kubernetes/conf/mr3-site.xml b/kubernetes/conf/mr3-site.xml
 index e88ae6c..9a989e3 100644
 --- a/kubernetes/conf/mr3-site.xml
@@ -214,6 +482,102 @@ index 0c8554c..4ab4806 100644
          command: ["/opt/mr3-run/hive/metastore-service.sh"]
          args: ["start", "--kubernetes"]
          imagePullPolicy: Always
+diff --git a/standalone/conf/hive-site.xml b/standalone/conf/hive-site.xml
+index f2bb814..6933bf0 100644
+--- a/standalone/conf/hive-site.xml
++++ b/standalone/conf/hive-site.xml
+@@ -60,11 +60,6 @@
+   <value>true</value>
+ </property>
+ 
+-<property>
+-  <name>hive.compactor.cleaner.on</name>
+-  <value>false</value>
+-</property>
+-
+ <property>
+   <name>hive.compactor.initiator.on</name>
+   <value>false</value>
+@@ -206,6 +201,11 @@
+   <value>true</value>
+ </property>
+ 
++<property>
++  <name>hive.optimize.index.filter</name>
++  <value>true</value>
++</property>
++
+ <property>
+   <name>hive.optimize.metadataonly</name>
+   <value>true</value>
+@@ -231,6 +231,11 @@
+   <value>all</value>
+ </property>
+ 
++<property>
++  <name>hive.stats.fetch.column.stats</name>
++  <value>true</value>
++</property>
++
+ <property>
+   <name>hive.support.concurrency</name>
+   <value>true</value>
+@@ -241,6 +246,11 @@
+   <value>true</value>
+ </property>
+ 
++<property>
++  <name>hive.tez.bucket.pruning</name>
++  <value>true</value>
++</property>
++
+ <property>
+   <name>hive.txn.manager</name>
+   <value>org.apache.hadoop.hive.ql.lockmgr.DbTxnManager</value>
+@@ -271,31 +281,6 @@
+ 
+ <!-- Correctness -->
+ 
+-<property>
+-  <name>hive.optimize.shared.work.dppunion</name>
+-  <value>false</value>
+-</property>
+-
+-<property>
+-  <name>hive.optimize.shared.work.dppunion.merge.eventops</name>
+-  <value>false</value>
+-</property>
+-
+-<property>
+-  <name>hive.optimize.shared.work.downstream.merge</name>
+-  <value>false</value>
+-</property>
+-
+-<property>
+-  <name>hive.optimize.shared.work.parallel.edge.support</name>
+-  <value>false</value>
+-</property>
+-
+-<property>
+-  <name>hive.optimize.shared.work.merge.ts.schema</name>
+-  <value>false</value>
+-</property>
+-
+ <property>
+   <name>hive.optimize.cte.materialize.threshold</name>
+   <value>-1</value>
+@@ -507,11 +492,6 @@
+   <value>true</value>
+ </property>
+ 
+-<property>
+-  <name>hive.llap.io.etl.skip.format</name>
+-  <value>none</value>
+-</property>
+-
+ <!-- MR3 -->
+ 
+ <property>
 diff --git a/standalone/conf/mr3-site.xml b/standalone/conf/mr3-site.xml
 index 6549f04..6386798 100644
 --- a/standalone/conf/mr3-site.xml
