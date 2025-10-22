@@ -223,3 +223,15 @@ HIVE_REV=4.0.0
 # the classpath with HiveConf.class from Spark. 
 unset SPARK_HOME
 
+#
+# Compiling Tez-MR3 and Hive-MR3 (optional)
+#
+
+# Tez-MR3 source directory
+# must match TEZ_REV
+TEZ_SRC=~/tez-mr3
+
+# Hive-MR3 source directory
+# must match HIVE_REV
+HIVE_SRC=~/hive-mr3
+

@@ -17,6 +17,7 @@ function mr3_setup_print_usage_amprocess {
 }
 
 function mr3_setup_init {
+    MR3_JARS=$MR3_BASE_DIR/mr3jar
     MR3_LIB_DIR=$MR3_BASE_DIR/mr3lib
     MR3_CLASSPATH=$MR3_LIB_DIR/*
 
@@ -47,9 +48,6 @@ function mr3_setup_update_yarn_opts {
         # If set to true, the user should ensure the compatibility between Tez-MR3 and classes imported from
         # YarnConfiguration.YARN_APPLICATION_CLASSPATH.
         #
-        # Set to false on vanilla Hadoop clusters and HDP
-        # Set to true on CDH and Amazon EMR
-        #
         TEZ_USE_MINIMAL=false
         export YARN_OPTS="$YARN_OPTS -Dtez.use.minimal=$TEZ_USE_MINIMAL"
 
@@ -76,5 +74,25 @@ function mr3_setup_update_yarn_opts {
         MR3_AM_MODE_CLASSPATH="-Damprocess.classpath="
     fi
     export YARN_OPTS="$YARN_OPTS $MR3_AM_MODE_CLASSPATH"
+}
+
+function mr3_core_mvn_install {
+    MR3_CORE_JAR_PATH=$MR3_JARS/$MR3_CORE_JAR
+    echo "Refreshing jar $MR3_CORE_JAR_PATH in maven repo..."
+    mvn install:install-file -Dfile=$MR3_CORE_JAR_PATH -DgroupId=com.datamonad.mr3 -DartifactId=mr3-core -Dversion=$MR3_REV -Dpackaging=jar 2>&1 | tee -a $COMPILE_OUT_FILE
+    if [ $? -ne 0 ]; then
+        echo -e "\nFailed to install $MR3_CORE_JAR to local maven repo.\n"
+        exit 1
+    fi
+}
+
+function mr3_tez_mvn_install {
+    MR3_TEZ_JAR_PATH=$MR3_JARS/$MR3_TEZ_JAR
+    echo "Refreshing jar $MR3_TEZ_JAR_PATH in maven repo..."
+    mvn install:install-file -Dfile=$MR3_TEZ_JAR_PATH -DgroupId=com.datamonad.mr3 -DartifactId=mr3-tez -Dversion=$MR3_REV -Dpackaging=jar 2>&1 | tee -a $COMPILE_OUT_FILE
+    if [ $? -ne 0 ]; then
+        echo -e "\nFailed to install $MR3_TEZ_JAR to local maven repo.\n"
+        exit 1
+    fi
 }
 
