@@ -271,7 +271,7 @@
 
 <property>
   <name>tez.runtime.pipelined-shuffle.enabled</name>
-  <value>true</value>
+  <value>false</value>
 </property>
 
 <property>
@@ -281,7 +281,7 @@
 
 <property>
   <name>tez.runtime.use.free.memory.writer.output</name>
-  <value>true</value>
+  <value>false</value>
 </property>
 
 <property>

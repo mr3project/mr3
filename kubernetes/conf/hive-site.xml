@@ -600,7 +600,7 @@
 
 <property>
   <name>hive.mr3.delete.vertex.local.directory</name>
-  <value>true</value>
+  <value>false</value>
 </property>
 
 <property>

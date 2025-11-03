@@ -39,7 +39,7 @@
 
 <property>
   <name>mr3.am.task.no.retry.errors</name>
-  <value>MapJoinMemoryExhaustionError,OutOfMemoryError</value>
+  <value>MapJoinMemoryExhaustionError</value>
 </property>
 
 <property>
