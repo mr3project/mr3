@@ -105,7 +105,7 @@ index af3d230..1c73706 100644
  
  <property>
 diff --git a/hadoop/conf/tpcds/hive-site.xml b/hadoop/conf/tpcds/hive-site.xml
-index 36e50ca..7c26dee 100644
+index 00711ea..23e07da 100644
 --- a/hadoop/conf/tpcds/hive-site.xml
 +++ b/hadoop/conf/tpcds/hive-site.xml
 @@ -84,11 +84,6 @@
@@ -120,7 +120,7 @@ index 36e50ca..7c26dee 100644
  <property>
    <name>hive.compactor.initiator.on</name>
    <value>false</value>
-@@ -227,6 +222,11 @@
+@@ -238,11 +233,21 @@
    <value>true</value>
  </property>
  
@@ -132,7 +132,17 @@ index 36e50ca..7c26dee 100644
  <property>
    <name>hive.optimize.metadataonly</name>
    <value>true</value>
-@@ -257,6 +257,11 @@
+ </property>
+ 
++<property>
++  <name>hive.optimize.sort.dynamic.partition</name>
++  <value>true</value>
++</property>
++
+ <property>
+   <name>hive.orc.cache.stripe.details.mem.size</name>
+   <value>1024Mb</value>
+@@ -273,6 +278,11 @@
    <value>binary</value>
  </property>
  
@@ -144,7 +154,7 @@ index 36e50ca..7c26dee 100644
  <property>
    <name>hive.support.concurrency</name>
    <value>true</value>
-@@ -267,6 +272,11 @@
+@@ -283,6 +293,11 @@
    <value>true</value>
  </property>
  
@@ -156,7 +166,7 @@ index 36e50ca..7c26dee 100644
  <property>
    <name>hive.txn.manager</name>
    <value>org.apache.hadoop.hive.ql.lockmgr.DbTxnManager</value>
-@@ -297,31 +307,6 @@
+@@ -313,31 +328,6 @@
  
  <!-- Correctness -->
  
@@ -188,7 +198,7 @@ index 36e50ca..7c26dee 100644
  <property>
    <name>hive.optimize.cte.materialize.threshold</name>
    <value>-1</value>
-@@ -473,11 +458,6 @@
+@@ -489,11 +479,6 @@
    <value>true</value>
  </property>
  
@@ -200,7 +210,7 @@ index 36e50ca..7c26dee 100644
  <!-- MR3 -->
  
  <property>
-@@ -510,11 +490,7 @@
+@@ -526,11 +511,7 @@
      
  <property>
    <name>hive.mr3.aux.jars</name>
@@ -214,7 +224,7 @@ index 36e50ca..7c26dee 100644
  
  <property>
 diff --git a/hadoop/conf/tpcds/mr3-site.xml b/hadoop/conf/tpcds/mr3-site.xml
-index 8a13b69..2b260b2 100644
+index a6c55b6..94c8b0c 100644
 --- a/hadoop/conf/tpcds/mr3-site.xml
 +++ b/hadoop/conf/tpcds/mr3-site.xml
 @@ -42,7 +42,7 @@
@@ -236,7 +246,7 @@ index 8a13b69..2b260b2 100644
  
  <property>
 diff --git a/hadoop/env.sh b/hadoop/env.sh
-index d6a6a0b..7a8dff6 100755
+index 93adce9..7035fc8 100755
 --- a/hadoop/env.sh
 +++ b/hadoop/env.sh
 @@ -22,7 +22,7 @@
@@ -304,7 +314,7 @@ index f444d3e..2447d93 100644
    user: hive
    imagePullPolicy: IfNotPresent
 diff --git a/kubernetes/conf/hive-site.xml b/kubernetes/conf/hive-site.xml
-index d22d9bf..7f8c438 100644
+index 67d7fce..2183671 100644
 --- a/kubernetes/conf/hive-site.xml
 +++ b/kubernetes/conf/hive-site.xml
 @@ -60,11 +60,6 @@
@@ -319,7 +329,7 @@ index d22d9bf..7f8c438 100644
  <property>
    <name>hive.compactor.initiator.on</name>
    <value>false</value>
-@@ -206,6 +201,11 @@
+@@ -217,11 +212,21 @@
    <value>true</value>
  </property>
  
@@ -331,7 +341,17 @@ index d22d9bf..7f8c438 100644
  <property>
    <name>hive.optimize.metadataonly</name>
    <value>true</value>
-@@ -231,6 +231,11 @@
+ </property>
+ 
++<property>
++  <name>hive.optimize.sort.dynamic.partition</name>
++  <value>true</value>
++</property>
++
+ <property>
+   <name>hive.orc.cache.stripe.details.mem.size</name>
+   <value>1024Mb</value>
+@@ -247,6 +252,11 @@
    <value>all</value>
  </property>
  
@@ -343,7 +363,7 @@ index d22d9bf..7f8c438 100644
  <property>
    <name>hive.support.concurrency</name>
    <value>true</value>
-@@ -241,6 +246,11 @@
+@@ -257,6 +267,11 @@
    <value>true</value>
  </property>
  
@@ -355,7 +375,7 @@ index d22d9bf..7f8c438 100644
  <property>
    <name>hive.txn.manager</name>
    <value>org.apache.hadoop.hive.ql.lockmgr.DbTxnManager</value>
-@@ -271,31 +281,6 @@
+@@ -287,31 +302,6 @@
  
  <!-- Correctness -->
  
@@ -387,7 +407,7 @@ index d22d9bf..7f8c438 100644
  <property>
    <name>hive.optimize.cte.materialize.threshold</name>
    <value>-1</value>
-@@ -508,11 +493,6 @@
+@@ -524,11 +514,6 @@
    <value>true</value>
  </property>
  
@@ -400,7 +420,7 @@ index d22d9bf..7f8c438 100644
  
  <property>
 diff --git a/kubernetes/conf/mr3-site.xml b/kubernetes/conf/mr3-site.xml
-index e88ae6c..9a989e3 100644
+index c3ba428..4258076 100644
 --- a/kubernetes/conf/mr3-site.xml
 +++ b/kubernetes/conf/mr3-site.xml
 @@ -16,10 +16,10 @@
@@ -483,7 +503,7 @@ index 0c8554c..4ab4806 100644
          args: ["start", "--kubernetes"]
          imagePullPolicy: Always
 diff --git a/standalone/conf/hive-site.xml b/standalone/conf/hive-site.xml
-index f2bb814..6933bf0 100644
+index 378da6d..b8d5c03 100644
 --- a/standalone/conf/hive-site.xml
 +++ b/standalone/conf/hive-site.xml
 @@ -60,11 +60,6 @@
@@ -498,7 +518,7 @@ index f2bb814..6933bf0 100644
  <property>
    <name>hive.compactor.initiator.on</name>
    <value>false</value>
-@@ -206,6 +201,11 @@
+@@ -217,11 +212,21 @@
    <value>true</value>
  </property>
  
@@ -510,7 +530,17 @@ index f2bb814..6933bf0 100644
  <property>
    <name>hive.optimize.metadataonly</name>
    <value>true</value>
-@@ -231,6 +231,11 @@
+ </property>
+ 
++<property>
++  <name>hive.optimize.sort.dynamic.partition</name>
++  <value>true</value>
++</property>
++
+ <property>
+   <name>hive.orc.cache.stripe.details.mem.size</name>
+   <value>1024Mb</value>
+@@ -247,6 +252,11 @@
    <value>all</value>
  </property>
  
@@ -522,7 +552,7 @@ index f2bb814..6933bf0 100644
  <property>
    <name>hive.support.concurrency</name>
    <value>true</value>
-@@ -241,6 +246,11 @@
+@@ -257,6 +267,11 @@
    <value>true</value>
  </property>
  
@@ -534,7 +564,7 @@ index f2bb814..6933bf0 100644
  <property>
    <name>hive.txn.manager</name>
    <value>org.apache.hadoop.hive.ql.lockmgr.DbTxnManager</value>
-@@ -271,31 +281,6 @@
+@@ -287,31 +302,6 @@
  
  <!-- Correctness -->
  
@@ -566,7 +596,7 @@ index f2bb814..6933bf0 100644
  <property>
    <name>hive.optimize.cte.materialize.threshold</name>
    <value>-1</value>
-@@ -507,11 +492,6 @@
+@@ -523,11 +513,6 @@
    <value>true</value>
  </property>
  
@@ -579,7 +609,7 @@ index f2bb814..6933bf0 100644
  
  <property>
 diff --git a/standalone/conf/mr3-site.xml b/standalone/conf/mr3-site.xml
-index 6549f04..6386798 100644
+index 92b1112..7c63c26 100644
 --- a/standalone/conf/mr3-site.xml
 +++ b/standalone/conf/mr3-site.xml
 @@ -18,7 +18,7 @@
