@@ -129,6 +129,11 @@
 </property>
 
 <property>
+  <name>hive.exec.reducers.max</name>
+  <value>1009</value>
+</property>
+
+<property>
   <name>hive.fetch.task.conversion.threshold</name>
   <value>1073741824</value>
 </property>
@@ -156,6 +161,12 @@
 <property>
   <name>hive.merge.nway.joins</name>
   <value>true</value>
+</property>
+
+<!-- set to true in order to avoid generating too many small files -->
+<property>
+  <name>hive.merge.tezfiles</name>
+  <value>false</value>
 </property>
 
 <property>
@@ -212,8 +223,13 @@
 </property>
 
 <property>
+  <name>hive.orc.cache.stripe.details.mem.size</name>
+  <value>1024Mb</value>
+</property>
+
+<property>
   <name>hive.orc.compute.splits.num.threads</name>
-  <value>20</value>
+  <value>100</value>
 </property>
 
 <property>

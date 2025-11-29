@@ -22,6 +22,12 @@
   <value>16777216</value>
 </property>
 
+<!-- set (e.g., to 1009) to prevent too many mappers generating Bloom filters -->
+<property>
+  <name>tez.grouping.split-count</name>
+  <value>0</value>
+</property>
+
 <!-- ShuffleVertexManager -->
 
 <property>
@@ -77,6 +83,11 @@
 <property>
   <name>tez.am.shuffle.auxiliary-service.id</name>
   <value>tez_shuffle</value>
+</property>
+
+<property>
+  <name>tez.shuffle.max.block.requests.thread.multiple</name>
+  <value>2</value>
 </property>
 
 <property>
@@ -260,6 +271,11 @@
 </property>
 
 <property>
+  <name>tez.runtime.shuffle.merge.percent</name>
+  <value>0.9</value>
+</property>
+
+<property>
   <name>tez.runtime.task.input.post-merge.buffer.percent</name>
   <value>0.9</value>
 </property>
@@ -272,6 +288,16 @@
 <property>
   <name>tez.runtime.use.free.memory.fetched.input</name>
   <value>true</value>
+</property>
+
+<property>
+  <name>tez.runtime.free.memory.factor.for.fetched.input</name>
+  <value>2.0</value>
+</property>
+
+<property>
+  <name>tez.runtime.shuffle.unordered.memory.streaming</name>
+  <value>false</value>
 </property>
 
 <property>
