@@ -77,6 +77,12 @@
   <value>300000</value>
 </property>
 
+<!-- set to a higher value in a large cluster -->
+<property>
+  <name>mr3.container.busy.wait.interval.ms</name>
+  <value>25</value>
+</property>
+
 <!-- Kubernetes -->
 
 <!-- mr3.master.mode is set in mr3-setup.sh --> 
