@@ -22,10 +22,10 @@
   <value>16777216</value>
 </property>
 
-<!-- set (e.g., to 1009) to prevent too many mappers generating Bloom filters -->
+<!-- set to a non-zero value in order to prevent too many mappers generating Bloom filters -->
 <property>
   <name>tez.grouping.split-count</name>
-  <value>0</value>
+  <value>1009</value>
 </property>
 
 <!-- ShuffleVertexManager -->
