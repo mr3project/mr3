@@ -58,7 +58,7 @@
 
 <property>
   <name>tez.shuffle-vertex-manager.use-stats-auto-parallelism</name>
-  <value>true</value>
+  <value>false</value>
 </property>
 
 <property>
