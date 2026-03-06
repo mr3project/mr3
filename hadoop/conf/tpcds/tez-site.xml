@@ -52,6 +52,11 @@
 </property>
 
 <property>
+  <name>tez.shuffle-vertex-manager.desired-task-input-size</name>
+  <value>104857600</value>
+</property>
+
+<property>
   <name>tez.shuffle-vertex-manager.auto-parallel.max.reduction.percentage</name>
   <value>50</value>
 </property>
