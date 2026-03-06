@@ -66,11 +66,6 @@
   <value>false</value>
 </property>
 
-<property>
-  <name>tez.shuffle.vertex.manager.auto.parallelism.min.percent</name>
-  <value>10</value>
-</property>
-
 <!-- CartesianProductVertexManager -->
 
 <property>
