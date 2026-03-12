@@ -101,6 +101,11 @@
 </property>
 
 <property>
+  <name>tez.runtime.shuffle.keep-alive.max.connections</name>
+  <value>360</value>
+</property>
+
+<property>
   <name>tez.shuffle.max.threads</name>
   <value>20</value>
   <description>
