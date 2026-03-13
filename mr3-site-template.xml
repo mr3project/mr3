@@ -1371,6 +1371,7 @@
   <description>
     true: enable history logging for Tasks.
     false: disable history logging for Tasks.
+    Set to true only for debugging.
   </description>
 </property>
 
