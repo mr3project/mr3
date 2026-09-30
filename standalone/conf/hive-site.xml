@@ -12,12 +12,6 @@
   <value>${hive.warehouse.dir}</value>
 </property>
 
-<!--
-  If the user chooses to override hive.exec.stagingdir for running such queries as 'analyze table',
-  it should be set to a directory (with write permission) in the same file system where target tables reside.
-  For example, if target tables reside on S3, hive.exec.stagingdir should point to a directory on S3.
- -->
-
 <property>
   <name>hive.exec.scratchdir</name>
   <value>${hive.scratch.dir}/${user.name}</value>

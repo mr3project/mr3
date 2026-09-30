@@ -12,12 +12,6 @@
   <value>${hive.warehouse.dir}</value>
 </property>
 
-<!--
-  If the user chooses to override hive.exec.stagingdir for running such queries as 'analyze table',
-  it should be set to a directory (with write permission) in the same file system where target tables reside.
-  For example, if target tables reside on S3, hive.exec.stagingdir should point to a directory on S3.
- -->
-
 <property>
   <name>hive.exec.scratchdir</name>
   <value>/opt/mr3-run/work-dir/${user.name}</value>
@@ -724,6 +718,21 @@
 </property>
 
 <!-- S3 -->
+
+<property>
+  <name>hive.blobstore.supported.schemes</name>
+  <value>s3a</value>
+</property>
+
+<property>
+  <name>hive.blobstore.use.blobstore.as.scratchdir</name>
+  <value>true</value>
+</property>
+
+<property>
+  <name>hive.blobstore.optimizations.enabled</name>
+  <value>true</value>
+</property>
 
 <property>
   <name>hive.stats.autogather</name>
