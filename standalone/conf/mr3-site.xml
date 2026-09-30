@@ -194,58 +194,8 @@
 </property>
 
 <property>
-  <name>mr3.ui.create.server</name>
-  <value>false</value>
-</property>
-
-<property>
-  <name>mr3.ui.timeline.store.type</name>
-  <value>leveldb</value>
-</property>
-
-<property>
-  <name>mr3.ui.server.port</name>
-  <value>19003</value>
-</property>
-
-<property>
-  <name>mr3.ui.server.host</name>
-  <value>0.0.0.0</value>
-</property>
-
-<property>
-  <name>mr3.ui.server.admin.users</name>
-  <value>hive</value>
-</property>
-
-<property>
-  <name>mr3.ui.timeline-service.leveldb-timeline-store.path</name>
-  <value>/tmp/leveldb</value>
-</property>
-
-<property>
-  <name>mr3.ui.timeline-service.leveldb-timeline-store.dir.umask</name>
-  <value>0770</value>
-</property>
-
-<property>
-  <name>mr3.ui.server.enable.cors</name>
-  <value>true</value>
-</property>
-
-<property>
-  <name>mr3.ui.server.cors.allowed.origins</name>
-  <value>*</value>
-</property>
-
-<property>
-  <name>mr3.ui.server.cors.allowed.methods</name>
-  <value>GET,POST,PUT,DELETE,OPTIONS</value>
-</property>
-
-<property>
-  <name>mr3.ui.server.cors.allowed.headers</name>
-  <value>Content-Type,Authorization,Accept</value>
+  <name>mr3.check.memory.usage.event.interval.secs</name>
+  <value>1</value>
 </property>
 
 </configuration>

@@ -53,6 +53,11 @@
 </property>
 
 <property>
+  <name>hive.use.scratchdir.for.staging</name>
+  <value>false</value>
+</property>
+
+<property>
   <name>hive.query.results.cache.directory</name>
   <value>${hive.scratch.dir}/_resultscache_</value>
 </property>
@@ -620,7 +625,6 @@
 </property>
 
 <!-- When using Kerberos on Hadoop, remove "yarn." to get Master Kerberos principal -->
-<!-- To pass LevelDB configuration parameters for MR3-UI, remove "yarn." -->
 <property>
   <name>hive.mr3.dag.config.remove.prefixes</name>
   <value>atlas.,datanucleus.,metastore.,hive.acid.,hive.compactor.,hive.druid.,hive.in.,hive.llap.daemon.,hive.metastore.,hive.query.results.,hive.repl.,hive.scheduled.,hive.security.,hive.server2.,hive.test,hive.zookeeper.,mapreduce.jobhistory.,yarn.,hadoop.proxyuser.,hadoop.zk.,ipc.,javax.jdo.</value>
@@ -677,6 +681,53 @@
 <property>
   <name>hive.compactor.worker.iceberg.threads</name>
   <value>1</value>
+</property>
+
+<!-- MR3-UI -->
+
+<property>
+  <name>hive.mr3.ui.create.server</name>
+  <value>false</value>
+</property>
+
+<property>
+  <name>hive.mr3.ui.include.operator.extra</name>
+  <value>false</value>
+</property>
+
+<property>
+  <name>hive.mr3.ui.query.result.max.rows</name>
+  <value>100</value>
+</property>
+
+<property>
+  <name>hive.mr3.ui.acl.enabled</name>
+  <value>true</value>
+</property>
+
+<property>
+  <name>hive.mr3.ui.view-acls</name>
+  <value>hive,anonymous</value>
+</property>
+
+<property>
+  <name>hive.mr3.ui.timeline.store.type</name>
+  <value>leveldb</value>
+</property>
+
+<property>
+  <name>hive.mr3.ui.timeline.leveldb.path</name>
+  <value>/tmp/mr3-timeline/</value>
+</property>
+
+<property>
+  <name>hive.mr3.ui.metrics.store.type</name>
+  <value>leveldb</value>
+</property>
+
+<property>
+  <name>hive.mr3.ui.metrics.leveldb.path</name>
+  <value>/tmp/mr3-metrics/</value>
 </property>
 
 </configuration>

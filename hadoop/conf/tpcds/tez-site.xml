@@ -140,6 +140,11 @@
   <value>org.apache.hadoop.io.compress.SnappyCodec</value>
 </property>
 
+<property>
+  <name>io.compression.codec.snappy.buffersize</name>
+  <value>262144</value>
+</property>
+
 <!-- Shuffle -->
 
 <property>

@@ -24,6 +24,11 @@
 </property>
 
 <property>
+  <name>hive.use.scratchdir.for.staging</name>
+  <value>false</value>
+</property>
+
+<property>
   <name>hive.query.results.cache.directory</name>
   <value>${hive.scratch.dir}/_resultscache_</value>
 </property>
@@ -763,6 +768,53 @@
 <property>
   <name>hive.exec.orc.blob.storage.split.size</name>
   <value>134217728</value>
+</property>
+
+<!-- MR3-UI -->
+
+<property>
+  <name>hive.mr3.ui.create.server</name>
+  <value>false</value>
+</property>
+
+<property>
+  <name>hive.mr3.ui.include.operator.extra</name>
+  <value>false</value>
+</property>
+
+<property>
+  <name>hive.mr3.ui.query.result.max.rows</name>
+  <value>100</value>
+</property>
+
+<property>
+  <name>hive.mr3.ui.acl.enabled</name>
+  <value>true</value>
+</property>
+
+<property>
+  <name>hive.mr3.ui.view-acls</name>
+  <value>hive,anonymous</value>
+</property>
+
+<property>
+  <name>hive.mr3.ui.timeline.store.type</name>
+  <value>leveldb</value>
+</property>
+
+<property>
+  <name>hive.mr3.ui.timeline.leveldb.path</name>
+  <value>/tmp/mr3-timeline/</value>
+</property>
+
+<property>
+  <name>hive.mr3.ui.metrics.store.type</name>
+  <value>leveldb</value>
+</property>
+
+<property>
+  <name>hive.mr3.ui.metrics.leveldb.path</name>
+  <value>/tmp/mr3-metrics/</value>
 </property>
 
 </configuration>
